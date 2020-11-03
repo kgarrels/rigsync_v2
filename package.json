@@ -2,7 +2,10 @@
     "name": "rigsync_v2",
     "description": "sync rigs, improved version",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-rbe": "0.2.9",
+        "node-red-node-serialport": "0.11.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
