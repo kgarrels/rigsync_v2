@@ -23,7 +23,7 @@
         "bin": "false",
         "out": "char",
         "addchar": "",
-        "responsetimeout": ""
+        "responsetimeout": "100"
     },
     {
         "id": "11a4a0d0.2b8ecf",
@@ -35,7 +35,7 @@
         "rules": [
             {
                 "t": "regex",
-                "v": "^FA",
+                "v": "^FA|^XI",
                 "vt": "str",
                 "case": false
             },
@@ -46,25 +46,18 @@
                 "case": false
             },
             {
-                "t": "regex",
-                "v": "^SM",
-                "vt": "str",
-                "case": false
-            },
-            {
                 "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 4,
+        "outputs": 3,
         "x": 910,
         "y": 500,
         "wires": [
             [
-                "adca7931.872728"
+                "2ae46caa.fb19b4"
             ],
-            [],
             [],
             [
                 "e870897.1ce9ef8"
@@ -81,8 +74,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 390,
-        "y": 220,
+        "x": 410,
+        "y": 300,
         "wires": [
             [
                 "5ee97017.e1fad8",
@@ -129,7 +122,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 serial in",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -187,27 +180,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 280,
+        "x": 790,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "adca7931.872728",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "TS590 freq",
-        "func": "f = parseInt(msg.payload.slice(2));\nmsg.payload = f;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1090,
-        "y": 480,
-        "wires": [
-            [
-                "562a7d7c.7aae44"
-            ]
-        ]
     },
     {
         "id": "54bc4149.107d4",
@@ -230,8 +205,8 @@
             "54bc4149.107d4",
             "ae5baa1e.1a4b28"
         ],
-        "x": 255,
-        "y": 220,
+        "x": 275,
+        "y": 300,
         "wires": [
             [
                 "218ac2b5.977126"
@@ -248,8 +223,8 @@
             "787a9b39.c3b51c",
             "763d8174.9f848"
         ],
-        "x": 895,
-        "y": 220,
+        "x": 915,
+        "y": 300,
         "wires": []
     },
     {
@@ -541,7 +516,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "2",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -618,8 +593,8 @@
         "z": "2567a318.c428a4",
         "name": "central frequency for all rigs",
         "info": "",
-        "x": 160,
-        "y": 140,
+        "x": 180,
+        "y": 220,
         "wires": []
     },
     {
@@ -856,7 +831,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "undecoded messages",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -903,6 +878,151 @@
             [
                 "ae5baa1e.1a4b28",
                 "31c358fd.ece39"
+            ]
+        ]
+    },
+    {
+        "id": "5e58f867.1e03d",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "PS0;",
+        "payloadType": "str",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "3fc3c1d.32b333e"
+            ]
+        ]
+    },
+    {
+        "id": "db91e5b6.ac58a8",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "func": "msg.payload = \"AI0;\" +  msg.payload + \"AI4;\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "ffd268a4.85e498",
+                "62c944fd.f62f44"
+            ]
+        ]
+    },
+    {
+        "id": "ffd268a4.85e498",
+        "type": "serial request",
+        "z": "2567a318.c428a4",
+        "name": "ts590",
+        "serial": "7157d0ac.afd278",
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "62c944fd.f62f44"
+            ]
+        ]
+    },
+    {
+        "id": "62c944fd.f62f44",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "TS590 direct command",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3fc3c1d.32b333e",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "pass",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "db91e5b6.ac58a8",
+                "62c944fd.f62f44"
+            ]
+        ]
+    },
+    {
+        "id": "d0364bde.8c3e28",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "PS1;",
+        "payloadType": "str",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "3fc3c1d.32b333e"
+            ]
+        ]
+    },
+    {
+        "id": "2ae46caa.fb19b4",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "TS590 freq",
+        "func": "f = parseInt(msg.payload.slice(2,13));\nmsg.payload = f;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1090,
+        "y": 480,
+        "wires": [
+            [
+                "562a7d7c.7aae44"
             ]
         ]
     }
