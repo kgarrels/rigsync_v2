@@ -273,8 +273,8 @@
         "z": "2567a318.c428a4",
         "server": "127.0.0.1",
         "port": "7356",
-        "out": "sit",
-        "splitc": " ",
+        "out": "char",
+        "splitc": "\\n",
         "name": "GQRX set request",
         "x": 870,
         "y": 1580,
@@ -318,7 +318,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx request",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -358,7 +358,9 @@
         "x": 1220,
         "y": 1580,
         "wires": [
-            [],
+            [
+                "699dc26b.9e6a84"
+            ],
             [
                 "699dc26b.9e6a84"
             ],
@@ -1071,8 +1073,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1690,
-        "y": 560,
+        "x": 1660,
+        "y": 580,
         "wires": []
     },
     {
@@ -1138,8 +1140,8 @@
         "links": [
             "de32c452.d911d"
         ],
-        "x": 1645,
-        "y": 620,
+        "x": 1575,
+        "y": 540,
         "wires": []
     },
     {
