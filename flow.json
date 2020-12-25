@@ -53,7 +53,7 @@
             },
             {
                 "t": "regex",
-                "v": "^SM",
+                "v": "^S",
                 "vt": "str",
                 "case": false
             },
@@ -80,12 +80,14 @@
                 "fc917a39.138f1"
             ],
             [
-                "368f38c5.fde2d8"
+                "368f38c5.fde2d8",
+                "a4b8f2ad.30f05"
             ],
             [],
             [],
             [
-                "e870897.1ce9ef8"
+                "e870897.1ce9ef8",
+                "8d2ca4a6.0365"
             ]
         ]
     },
@@ -358,9 +360,7 @@
         "x": 1220,
         "y": 1580,
         "wires": [
-            [
-                "699dc26b.9e6a84"
-            ],
+            [],
             [
                 "699dc26b.9e6a84"
             ],
@@ -532,12 +532,12 @@
                 "p": "payload"
             }
         ],
-        "repeat": "2",
+        "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "AI4;",
+        "payload": "AI4;XI;",
         "payloadType": "str",
         "x": 480,
         "y": 660,
@@ -856,7 +856,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1160,
-        "y": 620,
+        "y": 580,
         "wires": []
     },
     {
@@ -1164,5 +1164,39 @@
                 "6bf85f7e.4bd6f"
             ]
         ]
+    },
+    {
+        "id": "8d2ca4a6.0365",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "send XI",
+        "func": "msg.payload = \"XI;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1120,
+        "y": 620,
+        "wires": [
+            [
+                "ae71736d.90f3a8"
+            ]
+        ]
+    },
+    {
+        "id": "a4b8f2ad.30f05",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 640,
+        "wires": []
     }
 ]
