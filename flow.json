@@ -7,6 +7,65 @@
         "info": ""
     },
     {
+        "id": "3b36acf1.93ddd4",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [
+            {
+                "x": 260,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "11a4a0d0.2b8ecf"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1340,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "562a7d7c.7aae44",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1340,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "6bf85f7e.4bd6f",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1040,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "8d2ca4a6.0365",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 640,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "11a4a0d0.2b8ecf",
+                        "port": "4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "7157d0ac.afd278",
         "type": "serial-port",
         "serialport": "/dev/tty.SLAB_USBtoUART",
@@ -28,7 +87,7 @@
     {
         "id": "11a4a0d0.2b8ecf",
         "type": "switch",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "decode msg",
         "property": "payload",
         "propertyType": "msg",
@@ -53,13 +112,7 @@
             },
             {
                 "t": "regex",
-                "v": "^S",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "regex",
-                "v": "^AN",
+                "v": "^VS",
                 "vt": "str",
                 "case": false
             },
@@ -69,9 +122,9 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 6,
-        "x": 910,
-        "y": 500,
+        "outputs": 5,
+        "x": 470,
+        "y": 140,
         "wires": [
             [
                 "2ae46caa.fb19b4"
@@ -80,33 +133,12 @@
                 "fc917a39.138f1"
             ],
             [
-                "368f38c5.fde2d8",
-                "a4b8f2ad.30f05"
+                "368f38c5.fde2d8"
             ],
-            [],
-            [],
             [
-                "e870897.1ce9ef8",
-                "8d2ca4a6.0365"
-            ]
-        ]
-    },
-    {
-        "id": "218ac2b5.977126",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "synched frequency",
-        "func": "flow.set('freq', msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 410,
-        "y": 300,
-        "wires": [
-            [
-                "5ee97017.e1fad8"
-            ]
+                "316d561a.03107a"
+            ],
+            []
         ]
     },
     {
@@ -115,31 +147,12 @@
         "z": "2567a318.c428a4",
         "name": "TS590 serial in",
         "serial": "7157d0ac.afd278",
-        "x": 240,
+        "x": 100,
         "y": 500,
         "wires": [
             [
                 "15fc324b.d35cf6",
-                "2730202d.f4eeb8"
-            ]
-        ]
-    },
-    {
-        "id": "2730202d.f4eeb8",
-        "type": "split",
-        "z": "2567a318.c428a4",
-        "name": "split by \";\"",
-        "splt": ";",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 450,
-        "y": 500,
-        "wires": [
-            [
-                "802aac27.d799e"
+                "80206118.6f18c8"
             ]
         ]
     },
@@ -154,60 +167,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 310,
+        "x": 170,
         "y": 560,
-        "wires": []
-    },
-    {
-        "id": "802aac27.d799e",
-        "type": "switch",
-        "z": "2567a318.c428a4",
-        "name": "delete empty and \"?\" messages",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "regex",
-                "v": "\\?",
-                "vt": "str",
-                "case": false
-            },
-            {
-                "t": "empty"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 680,
-        "y": 500,
-        "wires": [
-            [],
-            [],
-            [
-                "11a4a0d0.2b8ecf",
-                "a8129d03.778888"
-            ]
-        ]
-    },
-    {
-        "id": "5ee97017.e1fad8",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "synched freq",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 360,
         "wires": []
     },
     {
@@ -216,29 +177,13 @@
         "z": "2567a318.c428a4",
         "name": "",
         "links": [
-            "6c640c27.c92afc",
-            "763d8174.9f848"
+            "2480a4db.5e2d4c",
+            "763d8174.9f848",
+            "787a9b39.c3b51c"
         ],
-        "x": 1575,
-        "y": 440,
+        "x": 1155,
+        "y": 420,
         "wires": []
-    },
-    {
-        "id": "6c640c27.c92afc",
-        "type": "link in",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "links": [
-            "54bc4149.107d4",
-            "ae5baa1e.1a4b28"
-        ],
-        "x": 275,
-        "y": 300,
-        "wires": [
-            [
-                "218ac2b5.977126"
-            ]
-        ]
     },
     {
         "id": "e8c2a6bc.ddcc4",
@@ -246,8 +191,8 @@
         "z": "2567a318.c428a4",
         "name": "send changes to gqrx",
         "info": "",
-        "x": 260,
-        "y": 1220,
+        "x": 280,
+        "y": 1700,
         "wires": []
     },
     {
@@ -260,12 +205,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 400,
-        "y": 1300,
+        "x": 420,
+        "y": 1780,
         "wires": [
             [
-                "a778ff4f.095bb8",
-                "12ed6514.61470b"
+                "5c218eb8.f79168"
             ]
         ]
     },
@@ -278,8 +222,8 @@
         "out": "char",
         "splitc": "\\n",
         "name": "GQRX set request",
-        "x": 870,
-        "y": 1580,
+        "x": 890,
+        "y": 2060,
         "wires": [
             [
                 "caa8281e.b04338"
@@ -307,28 +251,13 @@
         "topic": "",
         "payload": "f \\n",
         "payloadType": "str",
-        "x": 420,
-        "y": 1580,
+        "x": 440,
+        "y": 2060,
         "wires": [
             [
                 "12ed6514.61470b"
             ]
         ]
-    },
-    {
-        "id": "a778ff4f.095bb8",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "gqrx request",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 650,
-        "y": 1300,
-        "wires": []
     },
     {
         "id": "681dec55.0ec2f4",
@@ -357,8 +286,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 1220,
-        "y": 1580,
+        "x": 1240,
+        "y": 2060,
         "wires": [
             [],
             [
@@ -380,8 +309,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1420,
-        "y": 1560,
+        "x": 1440,
+        "y": 2040,
         "wires": []
     },
     {
@@ -394,8 +323,8 @@
             "a04f7c82.2c3d1",
             "54bc4149.107d4"
         ],
-        "x": 255,
-        "y": 1300,
+        "x": 275,
+        "y": 1780,
         "wires": [
             [
                 "3a8bdc2c.156d54"
@@ -408,8 +337,8 @@
         "z": "2567a318.c428a4",
         "name": "poll gqrx for changes",
         "info": "",
-        "x": 280,
-        "y": 1520,
+        "x": 300,
+        "y": 2000,
         "wires": []
     },
     {
@@ -421,8 +350,8 @@
             "6c640c27.c92afc",
             "b8913ddd.bcf758"
         ],
-        "x": 1675,
-        "y": 1620,
+        "x": 1695,
+        "y": 2100,
         "wires": []
     },
     {
@@ -430,7 +359,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx freq change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -438,8 +367,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1750,
-        "y": 1660,
+        "x": 1770,
+        "y": 2140,
         "wires": []
     },
     {
@@ -452,8 +381,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1420,
-        "y": 1620,
+        "x": 1440,
+        "y": 2100,
         "wires": [
             [
                 "f5a20bf7.685188"
@@ -470,8 +399,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
-        "y": 720,
+        "x": 490,
+        "y": 900,
         "wires": [
             [
                 "ae71736d.90f3a8"
@@ -483,7 +412,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -491,8 +420,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 760,
+        "x": 1150,
+        "y": 920,
         "wires": []
     },
     {
@@ -501,8 +430,8 @@
         "z": "2567a318.c428a4",
         "name": "TS590 serial out",
         "serial": "7157d0ac.afd278",
-        "x": 980,
-        "y": 700,
+        "x": 1160,
+        "y": 860,
         "wires": []
     },
     {
@@ -514,8 +443,8 @@
             "a04f7c82.2c3d1",
             "ae5baa1e.1a4b28"
         ],
-        "x": 255,
-        "y": 720,
+        "x": 275,
+        "y": 900,
         "wires": [
             [
                 "bcd3b431.1b416"
@@ -537,10 +466,10 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "AI4;XI;",
+        "payload": "VS00;AI4;XI;",
         "payloadType": "str",
-        "x": 480,
-        "y": 660,
+        "x": 500,
+        "y": 840,
         "wires": [
             [
                 "ae71736d.90f3a8"
@@ -560,8 +489,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1650,
-        "y": 480,
+        "x": 1230,
+        "y": 460,
         "wires": []
     },
     {
@@ -574,8 +503,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 710,
-        "y": 720,
+        "x": 890,
+        "y": 880,
         "wires": [
             [
                 "20afbe05.00aec2",
@@ -589,8 +518,8 @@
         "z": "2567a318.c428a4",
         "name": "handle gqrx",
         "info": "",
-        "x": 110,
-        "y": 1160,
+        "x": 130,
+        "y": 1640,
         "wires": []
     },
     {
@@ -604,16 +533,6 @@
         "wires": []
     },
     {
-        "id": "c2429440.f634b",
-        "type": "comment",
-        "z": "2567a318.c428a4",
-        "name": "central frequency for all rigs",
-        "info": "",
-        "x": 180,
-        "y": 220,
-        "wires": []
-    },
-    {
         "id": "45511962.276a48",
         "type": "debug",
         "z": "2567a318.c428a4",
@@ -624,8 +543,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1110,
-        "y": 1040,
+        "x": 1090,
+        "y": 1360,
         "wires": []
     },
     {
@@ -638,8 +557,8 @@
         "base64": false,
         "end": false,
         "name": "RUMLOG TCP out",
-        "x": 1110,
-        "y": 980,
+        "x": 1090,
+        "y": 1300,
         "wires": []
     },
     {
@@ -655,8 +574,8 @@
         "newline": "",
         "topic": "",
         "base64": false,
-        "x": 200,
-        "y": 940,
+        "x": 220,
+        "y": 1300,
         "wires": [
             [
                 "56f725ed.c911c4",
@@ -677,8 +596,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 1000,
+        "x": 440,
+        "y": 1360,
         "wires": []
     },
     {
@@ -687,8 +606,8 @@
         "z": "2567a318.c428a4",
         "name": "echo RUMLog <-> TS590",
         "info": "",
-        "x": 150,
-        "y": 880,
+        "x": 170,
+        "y": 1240,
         "wires": []
     },
     {
@@ -701,8 +620,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 920,
-        "y": 980,
+        "x": 900,
+        "y": 1300,
         "wires": [
             [
                 "b5803ae8.706908",
@@ -720,8 +639,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 440,
-        "y": 940,
+        "x": 460,
+        "y": 1300,
         "wires": [
             [
                 "ae71736d.90f3a8"
@@ -732,30 +651,28 @@
         "id": "f7016ddb.4f466",
         "type": "tcp out",
         "z": "2567a318.c428a4",
-        "d": true,
         "host": "192.168.2.5",
         "port": "5555",
         "beserver": "client",
         "base64": false,
         "end": false,
         "name": "EB500 TCP",
-        "x": 550,
-        "y": 1760,
+        "x": 570,
+        "y": 2240,
         "wires": []
     },
     {
         "id": "f060d77e.5350d8",
         "type": "function",
         "z": "2567a318.c428a4",
-        "d": true,
         "name": "EB500 frequency control",
         "func": "f = parseInt(msg.payload);\n\nmsg.payload = \"MEM:CONT MEM0, \" + f/1000000 + \" MHz, 0, CW , 0.1 kHz, (@1),1,OFF,ON,OFF,ON\\r\\n\";\nmsg.payload = msg.payload + \"MEM:CONT:LAB MEM0, \\\"TRX\\\"\\r\\n\";\nreturn msg;\n\n\n\n\n//MEMory:CONTents MEM1, 98.5 MHz, 34, FM ,120 kHz, (@1),1,OFF,ON,OFF,ON",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 325,
-        "y": 1762.8499755859375,
+        "x": 345,
+        "y": 2242.8499755859375,
         "wires": [
             [
                 "f7016ddb.4f466",
@@ -767,29 +684,28 @@
         "id": "2ba2cae7.20beb6",
         "type": "debug",
         "z": "2567a318.c428a4",
-        "d": true,
         "name": "",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 550,
-        "y": 1820,
+        "x": 570,
+        "y": 2300,
         "wires": []
     },
     {
         "id": "787a9b39.c3b51c",
         "type": "link in",
         "z": "2567a318.c428a4",
-        "d": true,
         "name": "",
         "links": [
             "56f23373.eea424",
-            "a04f7c82.2c3d1"
+            "a04f7c82.2c3d1",
+            "54bc4149.107d4"
         ],
-        "x": 155,
-        "y": 1760,
+        "x": 175,
+        "y": 2240,
         "wires": [
             [
                 "f060d77e.5350d8"
@@ -802,8 +718,8 @@
         "z": "2567a318.c428a4",
         "name": "handle EB500",
         "info": "",
-        "x": 75,
-        "y": 1702.8499755859375,
+        "x": 130,
+        "y": 2180,
         "wires": []
     },
     {
@@ -816,11 +732,12 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 670,
-        "y": 1580,
+        "x": 690,
+        "y": 2060,
         "wires": [
             [
-                "3f588e86.a9841a"
+                "3f588e86.a9841a",
+                "f95d4ba4.944fd8"
             ]
         ]
     },
@@ -834,48 +751,29 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1050,
-        "y": 1580,
+        "x": 1070,
+        "y": 2060,
         "wires": [
             [
-                "681dec55.0ec2f4"
+                "681dec55.0ec2f4",
+                "244a4186.25bb56"
             ]
         ]
     },
     {
-        "id": "e870897.1ce9ef8",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "undecoded messages",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "562a7d7c.7aae44",
         "type": "rbe",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "",
         "func": "rbe",
         "gap": "",
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1450,
-        "y": 440,
+        "x": 1210,
+        "y": 60,
         "wires": [
-            [
-                "54bc4149.107d4",
-                "bba28a01.d07"
-            ]
+            []
         ]
     },
     {
@@ -888,8 +786,8 @@
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1550,
-        "y": 1620,
+        "x": 1570,
+        "y": 2100,
         "wires": [
             [
                 "ae5baa1e.1a4b28",
@@ -905,10 +803,6 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "",
@@ -916,7 +810,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "PS0;",
+        "payload": "QD;",
         "payloadType": "str",
         "x": 170,
         "y": 80,
@@ -1027,15 +921,15 @@
     {
         "id": "2ae46caa.fb19b4",
         "type": "function",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "TS590 \"FA\"",
         "func": "f = parseInt(msg.payload.slice(2,13));\nmsg.payload = f;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1130,
-        "y": 440,
+        "x": 890,
+        "y": 60,
         "wires": [
             [
                 "562a7d7c.7aae44"
@@ -1045,15 +939,15 @@
     {
         "id": "fc917a39.138f1",
         "type": "function",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "TS590 \"MD\"",
         "func": "f = parseInt(msg.payload.slice(2,3));\nmsg.payload = f;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1130,
-        "y": 480,
+        "x": 890,
+        "y": 100,
         "wires": [
             [
                 "6bf85f7e.4bd6f"
@@ -1073,27 +967,24 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1660,
-        "y": 580,
+        "x": 1240,
+        "y": 560,
         "wires": []
     },
     {
         "id": "6bf85f7e.4bd6f",
         "type": "rbe",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "",
         "func": "rbe",
         "gap": "",
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1450,
-        "y": 480,
+        "x": 1210,
+        "y": 100,
         "wires": [
-            [
-                "b91c5712.c10e98",
-                "6664f06a.70a65"
-            ]
+            []
         ]
     },
     {
@@ -1106,12 +997,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 380,
-        "y": 1360,
+        "x": 400,
+        "y": 1840,
         "wires": [
             [
-                "a778ff4f.095bb8",
-                "12ed6514.61470b"
+                "5c218eb8.f79168"
             ]
         ]
     },
@@ -1124,8 +1014,8 @@
             "56f23373.eea424",
             "6664f06a.70a65"
         ],
-        "x": 255,
-        "y": 1360,
+        "x": 275,
+        "y": 1840,
         "wires": [
             [
                 "99068366.911428"
@@ -1140,22 +1030,22 @@
         "links": [
             "de32c452.d911d"
         ],
-        "x": 1575,
-        "y": 540,
+        "x": 1155,
+        "y": 520,
         "wires": []
     },
     {
         "id": "368f38c5.fde2d8",
         "type": "function",
-        "z": "2567a318.c428a4",
+        "z": "3b36acf1.93ddd4",
         "name": "TS590 \"XI\"",
         "func": "f = parseInt(msg.payload.slice(2,13));\nm = parseInt(msg.payload.slice(13,14));\n\n\nvar msg1 = { payload: f};\nvar msg2 = { payload: m};\n\nreturn [msg1, msg2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1130,
-        "y": 520,
+        "x": 890,
+        "y": 140,
         "wires": [
             [
                 "562a7d7c.7aae44"
@@ -1168,35 +1058,276 @@
     {
         "id": "8d2ca4a6.0365",
         "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "send XI",
+        "z": "3b36acf1.93ddd4",
+        "name": "VS: send XI",
         "func": "msg.payload = \"XI;\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1120,
-        "y": 620,
+        "x": 890,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56e74b3f.2d327c",
+        "type": "subflow:3b36acf1.93ddd4",
+        "z": "2567a318.c428a4",
+        "name": "handle TS590",
+        "env": [],
+        "x": 820,
+        "y": 500,
         "wires": [
             [
-                "ae71736d.90f3a8"
+                "54bc4149.107d4",
+                "bba28a01.d07"
+            ],
+            [
+                "b91c5712.c10e98",
+                "6664f06a.70a65"
+            ],
+            [],
+            [
+                "8081aebd.d0d328"
             ]
         ]
     },
     {
-        "id": "a4b8f2ad.30f05",
-        "type": "debug",
+        "id": "4cd25fc4.1c1f98",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "build ts590 FA cmd",
+        "func": "\nf = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nmsg.payload = \"FA\" + f + \";\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 310,
+        "y": 2420,
+        "wires": [
+            [
+                "a719f84e.c1cdf8"
+            ]
+        ]
+    },
+    {
+        "id": "2480a4db.5e2d4c",
+        "type": "link in",
         "z": "2567a318.c428a4",
         "name": "",
+        "links": [
+            "56f23373.eea424",
+            "a04f7c82.2c3d1",
+            "54bc4149.107d4"
+        ],
+        "x": 135,
+        "y": 2420,
+        "wires": [
+            [
+                "4cd25fc4.1c1f98"
+            ]
+        ]
+    },
+    {
+        "id": "a719f84e.c1cdf8",
+        "type": "tcp out",
+        "z": "2567a318.c428a4",
+        "host": "127.0.0.1",
+        "port": "19090",
+        "beserver": "client",
+        "base64": false,
+        "end": false,
+        "name": "",
+        "x": 610,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "80206118.6f18c8",
+        "type": "split",
+        "z": "2567a318.c428a4",
+        "name": "split by \";\"",
+        "splt": ";",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "c09101ae.a2db98"
+            ]
+        ]
+    },
+    {
+        "id": "c09101ae.a2db98",
+        "type": "switch",
+        "z": "2567a318.c428a4",
+        "name": "delete empty and \"?\" messages",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "\\?",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [],
+            [],
+            [
+                "56e74b3f.2d327c",
+                "f7355814.9b1038"
+            ]
+        ]
+    },
+    {
+        "id": "8081aebd.d0d328",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "undecoded message",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "316d561a.03107a",
+        "type": "debug",
+        "z": "3b36acf1.93ddd4",
+        "name": "VS received",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1660,
-        "y": 640,
+        "x": 890,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f95d4ba4.944fd8",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "gqrx request",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "5c218eb8.f79168",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "pass",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 590,
+        "y": 1840,
+        "wires": [
+            [
+                "f640adee.ffb1d8",
+                "12ed6514.61470b"
+            ]
+        ]
+    },
+    {
+        "id": "f640adee.ffb1d8",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "gqrx set freq",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "f7355814.9b1038",
+        "type": "link out",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "links": [
+            "4c6fcd38.4d3594"
+        ],
+        "x": 755,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "4c6fcd38.4d3594",
+        "type": "link in",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "links": [
+            "f7355814.9b1038"
+        ],
+        "x": 795,
+        "y": 1300,
+        "wires": [
+            [
+                "a8129d03.778888"
+            ]
+        ]
+    },
+    {
+        "id": "244a4186.25bb56",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "gqrx response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 2120,
         "wires": []
     }
 ]
