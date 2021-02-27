@@ -461,7 +461,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "0.5",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -1318,7 +1318,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx response",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
