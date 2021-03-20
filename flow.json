@@ -9,8 +9,9 @@
     {
         "id": "3b36acf1.93ddd4",
         "type": "subflow",
-        "name": "Subflow 1",
+        "name": "handle TS590",
         "info": "",
+        "category": "",
         "in": [
             {
                 "x": 260,
@@ -28,7 +29,11 @@
                 "y": 60,
                 "wires": [
                     {
-                        "id": "562a7d7c.7aae44",
+                        "id": "2ae46caa.fb19b4",
+                        "port": 0
+                    },
+                    {
+                        "id": "368f38c5.fde2d8",
                         "port": 0
                     }
                 ]
@@ -38,8 +43,12 @@
                 "y": 100,
                 "wires": [
                     {
-                        "id": "6bf85f7e.4bd6f",
+                        "id": "fc917a39.138f1",
                         "port": 0
+                    },
+                    {
+                        "id": "368f38c5.fde2d8",
+                        "port": 1
                     }
                 ]
             },
@@ -63,7 +72,9 @@
                     }
                 ]
             }
-        ]
+        ],
+        "env": [],
+        "color": "#DDAA99"
     },
     {
         "id": "7157d0ac.afd278",
@@ -83,6 +94,102 @@
         "out": "char",
         "addchar": "",
         "responsetimeout": "100"
+    },
+    {
+        "id": "423c9b32.8bdc7c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
     },
     {
         "id": "11a4a0d0.2b8ecf",
@@ -136,7 +243,8 @@
                 "368f38c5.fde2d8"
             ],
             [
-                "316d561a.03107a"
+                "316d561a.03107a",
+                "8d2ca4a6.0365"
             ],
             []
         ]
@@ -219,8 +327,8 @@
         "z": "2567a318.c428a4",
         "server": "127.0.0.1",
         "port": "7356",
-        "out": "char",
-        "splitc": "\\n",
+        "out": "sit",
+        "splitc": " ",
         "name": "GQRX set request",
         "x": 890,
         "y": 2060,
@@ -359,7 +467,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx freq change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -412,7 +520,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -461,7 +569,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "0.5",
+        "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -481,7 +589,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 freq change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -761,22 +869,6 @@
         ]
     },
     {
-        "id": "562a7d7c.7aae44",
-        "type": "rbe",
-        "z": "3b36acf1.93ddd4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "property": "payload",
-        "x": 1210,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f5a20bf7.685188",
         "type": "rbe",
         "z": "2567a318.c428a4",
@@ -786,7 +878,7 @@
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1570,
+        "x": 1590,
         "y": 2100,
         "wires": [
             [
@@ -858,7 +950,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 direct command",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -931,9 +1023,7 @@
         "x": 890,
         "y": 60,
         "wires": [
-            [
-                "562a7d7c.7aae44"
-            ]
+            []
         ]
     },
     {
@@ -949,9 +1039,7 @@
         "x": 890,
         "y": 100,
         "wires": [
-            [
-                "6bf85f7e.4bd6f"
-            ]
+            []
         ]
     },
     {
@@ -959,7 +1047,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 mode change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -970,22 +1058,6 @@
         "x": 1240,
         "y": 560,
         "wires": []
-    },
-    {
-        "id": "6bf85f7e.4bd6f",
-        "type": "rbe",
-        "z": "3b36acf1.93ddd4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "property": "payload",
-        "x": 1210,
-        "y": 100,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "99068366.911428",
@@ -1047,12 +1119,8 @@
         "x": 890,
         "y": 140,
         "wires": [
-            [
-                "562a7d7c.7aae44"
-            ],
-            [
-                "6bf85f7e.4bd6f"
-            ]
+            [],
+            []
         ]
     },
     {
@@ -1093,56 +1161,6 @@
                 "8081aebd.d0d328"
             ]
         ]
-    },
-    {
-        "id": "4cd25fc4.1c1f98",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "build ts590 FA cmd",
-        "func": "\nf = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nmsg.payload = \"FA\" + f + \";\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 310,
-        "y": 2420,
-        "wires": [
-            [
-                "a719f84e.c1cdf8"
-            ]
-        ]
-    },
-    {
-        "id": "2480a4db.5e2d4c",
-        "type": "link in",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "links": [
-            "56f23373.eea424",
-            "a04f7c82.2c3d1",
-            "54bc4149.107d4"
-        ],
-        "x": 135,
-        "y": 2420,
-        "wires": [
-            [
-                "4cd25fc4.1c1f98"
-            ]
-        ]
-    },
-    {
-        "id": "a719f84e.c1cdf8",
-        "type": "tcp out",
-        "z": "2567a318.c428a4",
-        "host": "127.0.0.1",
-        "port": "19090",
-        "beserver": "client",
-        "base64": false,
-        "end": false,
-        "name": "",
-        "x": 610,
-        "y": 2420,
-        "wires": []
     },
     {
         "id": "80206118.6f18c8",
@@ -1272,8 +1290,8 @@
         "id": "f640adee.ffb1d8",
         "type": "debug",
         "z": "2567a318.c428a4",
-        "name": "gqrx set freq",
-        "active": true,
+        "name": "gqrx cmd",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1281,7 +1299,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
+        "x": 740,
         "y": 1840,
         "wires": []
     },
