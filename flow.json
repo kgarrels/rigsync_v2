@@ -244,8 +244,7 @@
                 "a578010d.8104c8"
             ],
             [
-                "316d561a.03107a",
-                "8d2ca4a6.0365"
+                "316d561a.03107a"
             ],
             []
         ]
@@ -590,7 +589,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 freq change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1048,7 +1047,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 mode change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1292,7 +1291,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
