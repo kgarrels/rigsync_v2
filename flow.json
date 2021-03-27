@@ -1387,7 +1387,7 @@
         "id": "dd935903.3d2ba8",
         "type": "function",
         "z": "2567a318.c428a4",
-        "name": "EB500 frequency control",
+        "name": "HF1000 frequency control",
         "func": "f = parseInt(msg.payload);\n\n\nmsg.payload = \"ctl 1\\r\\nfrq \" + f/1000000 + \"\\r\\nCTL 0\\r\\n\";\nreturn msg;\n\n\n",
         "outputs": 1,
         "noerr": 0,
