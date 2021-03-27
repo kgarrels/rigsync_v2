@@ -195,7 +195,7 @@
         "id": "41edda2f.16af1c",
         "type": "serial-port",
         "serialport": "/dev/tty.usbserial-0000000058",
-        "serialbaud": "9600",
+        "serialbaud": "4800",
         "databits": "8",
         "parity": "none",
         "stopbits": "2",
