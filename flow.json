@@ -79,8 +79,8 @@
     {
         "id": "7157d0ac.afd278",
         "type": "serial-port",
-        "serialport": "/dev/tty.SLAB_USBtoUART",
-        "serialbaud": "115200",
+        "serialport": "/dev/tty.usbserial-0000000058",
+        "serialbaud": "9600",
         "databits": "8",
         "parity": "none",
         "stopbits": "1",
@@ -287,7 +287,8 @@
         "links": [
             "2480a4db.5e2d4c",
             "763d8174.9f848",
-            "787a9b39.c3b51c"
+            "787a9b39.c3b51c",
+            "399515f5.0da982"
         ],
         "x": 1155,
         "y": 420,
@@ -1381,5 +1382,66 @@
                 "54bc4149.107d4"
             ]
         ]
+    },
+    {
+        "id": "dd935903.3d2ba8",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "EB500 frequency control",
+        "func": "f = parseInt(msg.payload);\n\n\nmsg.payload = \"ctl 1\\r\\nfrq \" + f/1000000 + \"\\r\\nCTL 0\\r\\n\";\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 345,
+        "y": 2422.8499755859375,
+        "wires": [
+            [
+                "9200e33d.91e698",
+                "b7d5b113.e2ab08"
+            ]
+        ]
+    },
+    {
+        "id": "9200e33d.91e698",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "399515f5.0da982",
+        "type": "link in",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "links": [
+            "56f23373.eea424",
+            "a04f7c82.2c3d1",
+            "54bc4149.107d4"
+        ],
+        "x": 175,
+        "y": 2420,
+        "wires": [
+            [
+                "dd935903.3d2ba8"
+            ]
+        ]
+    },
+    {
+        "id": "b7d5b113.e2ab08",
+        "type": "serial out",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "serial": "7157d0ac.afd278",
+        "x": 650,
+        "y": 2420,
+        "wires": []
     }
 ]
