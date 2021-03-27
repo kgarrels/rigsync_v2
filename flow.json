@@ -493,8 +493,7 @@
         "y": 2100,
         "wires": [
             [
-                "ae5baa1e.1a4b28",
-                "31c358fd.ece39"
+                "a29d03e1.699c48"
             ]
         ]
     },
@@ -1345,5 +1344,24 @@
         "x": 780,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "a29d03e1.699c48",
+        "type": "rbe",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 1590,
+        "y": 2100,
+        "wires": [
+            [
+                "ae5baa1e.1a4b28",
+                "31c358fd.ece39"
+            ]
+        ]
     }
 ]
