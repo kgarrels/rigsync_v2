@@ -79,8 +79,8 @@
     {
         "id": "7157d0ac.afd278",
         "type": "serial-port",
-        "serialport": "/dev/tty.usbserial-0000000058",
-        "serialbaud": "9600",
+        "serialport": "/dev/tty.SLAB_USBtoUART",
+        "serialbaud": "115200",
         "databits": "8",
         "parity": "none",
         "stopbits": "1",
@@ -269,7 +269,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 serial in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1397,8 +1397,7 @@
         "y": 2422.8499755859375,
         "wires": [
             [
-                "9200e33d.91e698",
-                "b7d5b113.e2ab08"
+                "9200e33d.91e698"
             ]
         ]
     },
