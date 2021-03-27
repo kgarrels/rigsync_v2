@@ -192,6 +192,25 @@
         }
     },
     {
+        "id": "41edda2f.16af1c",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbserial-0000000058",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
         "id": "11a4a0d0.2b8ecf",
         "type": "switch",
         "z": "3b36acf1.93ddd4",
@@ -269,7 +288,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 serial in",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1397,7 +1416,8 @@
         "y": 2422.8499755859375,
         "wires": [
             [
-                "9200e33d.91e698"
+                "9200e33d.91e698",
+                "b7d5b113.e2ab08"
             ]
         ]
     },
@@ -1437,9 +1457,9 @@
         "id": "b7d5b113.e2ab08",
         "type": "serial out",
         "z": "2567a318.c428a4",
-        "name": "",
-        "serial": "7157d0ac.afd278",
-        "x": 650,
+        "name": "HF1000",
+        "serial": "41edda2f.16af1c",
+        "x": 580,
         "y": 2420,
         "wires": []
     }
