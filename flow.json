@@ -487,7 +487,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx freq",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -578,7 +578,8 @@
         "y": 900,
         "wires": [
             [
-                "bcd3b431.1b416"
+                "bcd3b431.1b416",
+                "2e8bc480.2e0d2c"
             ]
         ]
     },
@@ -1514,6 +1515,22 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 700,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "2e8bc480.2e0d2c",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
         "y": 960,
         "wires": []
     }
