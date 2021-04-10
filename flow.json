@@ -309,8 +309,8 @@
             "787a9b39.c3b51c",
             "399515f5.0da982"
         ],
-        "x": 1155,
-        "y": 420,
+        "x": 1415,
+        "y": 360,
         "wires": []
     },
     {
@@ -1159,7 +1159,6 @@
         "wires": [
             [
                 "bba28a01.d07",
-                "73671e0a.802238",
                 "40e4c795.2be6d8"
             ],
             [
@@ -1301,7 +1300,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1384,8 +1383,8 @@
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1030,
-        "y": 420,
+        "x": 1290,
+        "y": 360,
         "wires": [
             [
                 "54bc4149.107d4"
@@ -1479,7 +1478,9 @@
         "x": 1080,
         "y": 360,
         "wires": [
-            []
+            [
+                "73671e0a.802238"
+            ]
         ]
     }
 ]
