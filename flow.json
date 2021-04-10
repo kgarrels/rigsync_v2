@@ -576,7 +576,8 @@
         "y": 900,
         "wires": [
             [
-                "bcd3b431.1b416"
+                "bcd3b431.1b416",
+                "19455022.6fe31"
             ]
         ]
     },
@@ -1515,6 +1516,22 @@
         "statusType": "auto",
         "x": 1300,
         "y": 360,
+        "wires": []
+    },
+    {
+        "id": "19455022.6fe31",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 1020,
         "wires": []
     }
 ]
