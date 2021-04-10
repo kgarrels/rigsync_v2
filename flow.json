@@ -486,7 +486,7 @@
         "id": "31c358fd.ece39",
         "type": "debug",
         "z": "2567a318.c428a4",
-        "name": "gqrx freq change",
+        "name": "gqrx freq",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -495,7 +495,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1770,
+        "x": 1740,
         "y": 2140,
         "wires": []
     },
@@ -513,7 +513,8 @@
         "y": 2100,
         "wires": [
             [
-                "cf2d1d08.88d4b"
+                "ae5baa1e.1a4b28",
+                "31c358fd.ece39"
             ]
         ]
     },
@@ -1497,40 +1498,5 @@
         "x": 1300,
         "y": 360,
         "wires": []
-    },
-    {
-        "id": "a29d03e1.699c48",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "property": "payload",
-        "x": 1570,
-        "y": 2180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cf2d1d08.88d4b",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1590,
-        "y": 2080,
-        "wires": [
-            [
-                "ae5baa1e.1a4b28",
-                "31c358fd.ece39"
-            ]
-        ]
     }
 ]
