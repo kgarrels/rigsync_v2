@@ -40,7 +40,7 @@
             },
             {
                 "x": 1340,
-                "y": 100,
+                "y": 120,
                 "wires": [
                     {
                         "id": "fc917a39.138f1",
@@ -487,7 +487,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx freq change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -540,7 +540,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1156,7 +1156,8 @@
         "wires": [
             [
                 "bba28a01.d07",
-                "73671e0a.802238"
+                "73671e0a.802238",
+                "40e4c795.2be6d8"
             ],
             [
                 "b91c5712.c10e98",
@@ -1297,7 +1298,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1399,8 +1400,8 @@
         "start": "",
         "inout": "out",
         "property": "payload",
-        "x": 1070,
-        "y": 440,
+        "x": 1030,
+        "y": 420,
         "wires": [
             [
                 "54bc4149.107d4"
@@ -1470,6 +1471,49 @@
         "serial": "41edda2f.16af1c",
         "x": 580,
         "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "40e4c795.2be6d8",
+        "type": "change",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ts590_freq",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 360,
+        "wires": [
+            [
+                "a4989238.087f3"
+            ]
+        ]
+    },
+    {
+        "id": "a4989238.087f3",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 360,
         "wires": []
     }
 ]
