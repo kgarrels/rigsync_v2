@@ -533,8 +533,7 @@
         "y": 900,
         "wires": [
             [
-                "ae71736d.90f3a8",
-                "d81869b9.c263a8"
+                "ae71736d.90f3a8"
             ]
         ]
     },
@@ -543,7 +542,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -578,8 +577,7 @@
         "y": 900,
         "wires": [
             [
-                "bcd3b431.1b416",
-                "2e8bc480.2e0d2c"
+                "bcd3b431.1b416"
             ]
         ]
     },
@@ -1481,57 +1479,7 @@
         "x": 1080,
         "y": 360,
         "wires": [
-            [
-                "a4989238.087f3"
-            ]
+            []
         ]
-    },
-    {
-        "id": "a4989238.087f3",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1300,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "d81869b9.c263a8",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "2e8bc480.2e0d2c",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 300,
-        "y": 960,
-        "wires": []
     }
 ]
