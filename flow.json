@@ -513,7 +513,7 @@
         "y": 2100,
         "wires": [
             [
-                "a29d03e1.699c48"
+                "cf2d1d08.88d4b"
             ]
         ]
     },
@@ -1373,25 +1373,6 @@
         "wires": []
     },
     {
-        "id": "a29d03e1.699c48",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "property": "payload",
-        "x": 1590,
-        "y": 2100,
-        "wires": [
-            [
-                "ae5baa1e.1a4b28",
-                "31c358fd.ece39"
-            ]
-        ]
-    },
-    {
         "id": "73671e0a.802238",
         "type": "rbe",
         "z": "2567a318.c428a4",
@@ -1516,5 +1497,40 @@
         "x": 1300,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "a29d03e1.699c48",
+        "type": "rbe",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 1570,
+        "y": 2180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf2d1d08.88d4b",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "pass",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1590,
+        "y": 2080,
+        "wires": [
+            [
+                "ae5baa1e.1a4b28",
+                "31c358fd.ece39"
+            ]
+        ]
     }
 ]
