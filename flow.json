@@ -328,11 +328,12 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "set GQRX frequency",
-        "func": "f = parseInt(msg.payload);\nmsg.payload = \"F \" + f +\"\\n\";\n\nreturn msg;",
+        "func": "f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\nmsg.payload = \"F \" + f +\"\\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 420,
         "y": 1780,
         "wires": [
@@ -513,7 +514,8 @@
         "y": 2100,
         "wires": [
             [
-                "409d2d44.b3a75c"
+                "409d2d44.b3a75c",
+                "9210a2c1.b101b"
             ]
         ]
     },
@@ -1500,6 +1502,31 @@
                 "ae5baa1e.1a4b28",
                 "31c358fd.ece39"
             ]
+        ]
+    },
+    {
+        "id": "9210a2c1.b101b",
+        "type": "change",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gqrx_freq",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1630,
+        "y": 2220,
+        "wires": [
+            []
         ]
     }
 ]
