@@ -511,12 +511,12 @@
         "initialize": "",
         "finalize": "",
         "x": 1420,
-        "y": 1820,
+        "y": 1800,
         "wires": [
             [
                 "9210a2c1.b101b",
                 "ae5baa1e.1a4b28",
-                "f17090ff.ffd708"
+                "31c358fd.ece39"
             ]
         ]
     },
@@ -1463,7 +1463,7 @@
         "wires": [
             [
                 "54bc4149.107d4",
-                "2824de74.f6d84a"
+                "bba28a01.d07"
             ]
         ]
     },
@@ -1490,44 +1490,6 @@
         "y": 1940,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f17090ff.ffd708",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "x": 1610,
-        "y": 1860,
-        "wires": [
-            [
-                "31c358fd.ece39"
-            ]
-        ]
-    },
-    {
-        "id": "2824de74.f6d84a",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "x": 1330,
-        "y": 400,
-        "wires": [
-            [
-                "bba28a01.d07"
-            ]
         ]
     }
 ]
