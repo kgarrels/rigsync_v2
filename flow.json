@@ -334,7 +334,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 380,
         "y": 1500,
         "wires": [
             [
@@ -1080,7 +1080,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 380,
+        "x": 370,
         "y": 1560,
         "wires": [
             [
