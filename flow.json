@@ -288,7 +288,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 serial in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
