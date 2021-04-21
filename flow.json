@@ -1482,7 +1482,7 @@
         "z": "2567a318.c428a4",
         "name": "freq",
         "url": "/freq",
-        "method": "post",
+        "method": "get",
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
