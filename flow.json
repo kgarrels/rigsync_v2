@@ -259,8 +259,7 @@
                 "fc917a39.138f1"
             ],
             [
-                "368f38c5.fde2d8",
-                "a578010d.8104c8"
+                "368f38c5.fde2d8"
             ],
             [
                 "316d561a.03107a"
@@ -1356,22 +1355,6 @@
         "statusType": "auto",
         "x": 1220,
         "y": 1840,
-        "wires": []
-    },
-    {
-        "id": "a578010d.8104c8",
-        "type": "debug",
-        "z": "3b36acf1.93ddd4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 360,
         "wires": []
     },
     {
