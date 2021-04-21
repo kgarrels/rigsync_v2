@@ -535,8 +535,7 @@
         "y": 900,
         "wires": [
             [
-                "ae71736d.90f3a8",
-                "bdb84f6b.f26288"
+                "ae71736d.90f3a8"
             ]
         ]
     },
@@ -1476,50 +1475,5 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "d1874022.c100e",
-        "type": "http in",
-        "z": "2567a318.c428a4",
-        "name": "trx",
-        "url": "/trx",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 140,
-        "y": 760,
-        "wires": [
-            [
-                "bcd3b431.1b416",
-                "48b7ad33.6eb01c"
-            ]
-        ]
-    },
-    {
-        "id": "48b7ad33.6eb01c",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 400,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "bdb84f6b.f26288",
-        "type": "http response",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 660,
-        "y": 760,
-        "wires": []
     }
 ]
