@@ -1474,5 +1474,22 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "d1874022.c100e",
+        "type": "http in",
+        "z": "2567a318.c428a4",
+        "name": "freq",
+        "url": "/freq",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 760,
+        "wires": [
+            [
+                "bcd3b431.1b416"
+            ]
+        ]
     }
 ]
