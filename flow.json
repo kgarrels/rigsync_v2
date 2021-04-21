@@ -1490,7 +1490,8 @@
         "wires": [
             [
                 "bcd3b431.1b416",
-                "48b7ad33.6eb01c"
+                "48b7ad33.6eb01c",
+                "bdb84f6b.f26288"
             ]
         ]
     },
@@ -1508,6 +1509,17 @@
         "statusType": "auto",
         "x": 400,
         "y": 700,
+        "wires": []
+    },
+    {
+        "id": "bdb84f6b.f26288",
+        "type": "http response",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 660,
+        "y": 760,
         "wires": []
     }
 ]
