@@ -342,24 +342,6 @@
         ]
     },
     {
-        "id": "3f588e86.a9841a",
-        "type": "tcp request",
-        "z": "2567a318.c428a4",
-        "d": true,
-        "server": "127.0.0.1",
-        "port": "7356",
-        "out": "sit",
-        "splitc": " ",
-        "name": "GQRX set request",
-        "x": 870,
-        "y": 1780,
-        "wires": [
-            [
-                "caa8281e.b04338"
-            ]
-        ]
-    },
-    {
         "id": "56a90595.8e6484",
         "type": "inject",
         "z": "2567a318.c428a4",
@@ -874,8 +856,8 @@
         "y": 1780,
         "wires": [
             [
-                "3f588e86.a9841a",
-                "f95d4ba4.944fd8"
+                "f95d4ba4.944fd8",
+                "3ddeec28.45f1b4"
             ]
         ]
     },
@@ -1474,6 +1456,23 @@
         "y": 1860,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "3ddeec28.45f1b4",
+        "type": "tcp request",
+        "z": "2567a318.c428a4",
+        "server": "127.0.0.1",
+        "port": "7356",
+        "out": "sit",
+        "splitc": " ",
+        "name": "",
+        "x": 890,
+        "y": 1780,
+        "wires": [
+            [
+                "caa8281e.b04338"
+            ]
         ]
     }
 ]
