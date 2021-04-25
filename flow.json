@@ -79,7 +79,7 @@
     {
         "id": "7157d0ac.afd278",
         "type": "serial-port",
-        "serialport": "/dev/tty.SLAB_USBtoUART1",
+        "serialport": "/dev/tty.SLAB_USBtoUART",
         "serialbaud": "115200",
         "databits": "8",
         "parity": "none",
