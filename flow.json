@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "5e371128.00deb8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3b36acf1.93ddd4",
         "type": "subflow",
         "name": "handle TS590",
