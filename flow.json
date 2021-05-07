@@ -533,7 +533,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -602,7 +602,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 freq change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1290,7 +1290,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1481,5 +1481,50 @@
                 "caa8281e.b04338"
             ]
         ]
+    },
+    {
+        "id": "b1afcb14.ea23c",
+        "type": "inject",
+        "z": "5e371128.00deb8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "b225395b.01f8a8"
+            ]
+        ]
+    },
+    {
+        "id": "b225395b.01f8a8",
+        "type": "debug",
+        "z": "5e371128.00deb8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 240,
+        "wires": []
     }
 ]
