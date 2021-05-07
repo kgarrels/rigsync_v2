@@ -1501,9 +1501,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 310,
+        "payload": "Hi kai",
+        "payloadType": "str",
+        "x": 300,
         "y": 220,
         "wires": [
             [
