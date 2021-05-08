@@ -851,7 +851,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 530,
+        "x": 590,
         "y": 1780,
         "wires": [
             [
@@ -1254,7 +1254,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
+        "x": 770,
         "y": 1840,
         "wires": []
     },
@@ -1468,7 +1468,7 @@
         "out": "sit",
         "splitc": " ",
         "name": "",
-        "x": 890,
+        "x": 850,
         "y": 1780,
         "wires": [
             [
