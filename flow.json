@@ -461,8 +461,8 @@
             "6c640c27.c92afc",
             "b8913ddd.bcf758"
         ],
-        "x": 1895,
-        "y": 1780,
+        "x": 1775,
+        "y": 1740,
         "wires": []
     },
     {
@@ -478,8 +478,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1640,
-        "y": 1900,
+        "x": 1600,
+        "y": 1840,
         "wires": []
     },
     {
@@ -1451,8 +1451,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1660,
-        "y": 1860,
+        "x": 1620,
+        "y": 1800,
         "wires": [
             [
                 "212ff327.13efa4"
@@ -1506,8 +1506,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 1770,
-        "y": 1780,
+        "x": 1650,
+        "y": 1740,
         "wires": [
             [
                 "ae5baa1e.1a4b28"
