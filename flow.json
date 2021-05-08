@@ -7,13 +7,6 @@
         "info": ""
     },
     {
-        "id": "5e371128.00deb8",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "3b36acf1.93ddd4",
         "type": "subflow",
         "name": "handle TS590",
@@ -1481,50 +1474,5 @@
                 "caa8281e.b04338"
             ]
         ]
-    },
-    {
-        "id": "b1afcb14.ea23c",
-        "type": "inject",
-        "z": "5e371128.00deb8",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Hi kai",
-        "payloadType": "str",
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "b225395b.01f8a8"
-            ]
-        ]
-    },
-    {
-        "id": "b225395b.01f8a8",
-        "type": "debug",
-        "z": "5e371128.00deb8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 240,
-        "wires": []
     }
 ]
