@@ -526,7 +526,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -595,7 +595,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 freq change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -852,7 +852,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
+        "x": 530,
         "y": 1780,
         "wires": [
             [
@@ -1255,7 +1255,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 710,
         "y": 1840,
         "wires": []
     },
