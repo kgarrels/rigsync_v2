@@ -362,7 +362,7 @@
         "topic": "",
         "payload": "f \\n",
         "payloadType": "str",
-        "x": 420,
+        "x": 300,
         "y": 1780,
         "wires": [
             [
@@ -852,12 +852,12 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 670,
+        "x": 550,
         "y": 1780,
         "wires": [
             [
                 "f95d4ba4.944fd8",
-                "3ddeec28.45f1b4"
+                "1530c998.d164e6"
             ]
         ]
     },
@@ -1472,6 +1472,25 @@
         "wires": [
             [
                 "caa8281e.b04338"
+            ]
+        ]
+    },
+    {
+        "id": "1530c998.d164e6",
+        "type": "throttle",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": "0.1",
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 700,
+        "y": 1780,
+        "wires": [
+            [
+                "3ddeec28.45f1b4"
             ]
         ]
     }
