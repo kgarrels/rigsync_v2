@@ -1283,7 +1283,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1291,7 +1291,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 740,
         "y": 1560,
         "wires": []
     },
@@ -1428,8 +1428,8 @@
         "y": 460,
         "wires": [
             [
-                "54bc4149.107d4",
-                "bba28a01.d07"
+                "bba28a01.d07",
+                "fcd8598f.3ae3e8"
             ]
         ]
     },
@@ -1491,6 +1491,25 @@
         "wires": [
             [
                 "3ddeec28.45f1b4"
+            ]
+        ]
+    },
+    {
+        "id": "fcd8598f.3ae3e8",
+        "type": "rbe",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1250,
+        "y": 460,
+        "wires": [
+            [
+                "54bc4149.107d4"
             ]
         ]
     }
