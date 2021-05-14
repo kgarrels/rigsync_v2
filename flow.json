@@ -397,8 +397,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 1220,
-        "y": 1780,
+        "x": 1000,
+        "y": 2000,
         "wires": [
             [],
             [
@@ -420,8 +420,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1420,
-        "y": 1760,
+        "x": 1200,
+        "y": 1980,
         "wires": []
     },
     {
@@ -461,8 +461,8 @@
             "6c640c27.c92afc",
             "b8913ddd.bcf758"
         ],
-        "x": 1775,
-        "y": 1740,
+        "x": 1555,
+        "y": 1960,
         "wires": []
     },
     {
@@ -470,7 +470,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx freq",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -478,8 +478,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1680,
-        "y": 1680,
+        "x": 1460,
+        "y": 1900,
         "wires": []
     },
     {
@@ -492,8 +492,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1420,
-        "y": 1800,
+        "x": 1200,
+        "y": 2020,
         "wires": [
             [
                 "9210a2c1.b101b"
@@ -869,8 +869,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1050,
-        "y": 1780,
+        "x": 830,
+        "y": 2000,
         "wires": [
             [
                 "681dec55.0ec2f4",
@@ -1334,8 +1334,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 1840,
+        "x": 1000,
+        "y": 2060,
         "wires": []
     },
     {
@@ -1449,8 +1449,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1620,
-        "y": 1800,
+        "x": 1400,
+        "y": 2020,
         "wires": [
             [
                 "212ff327.13efa4"
@@ -1505,8 +1505,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 1650,
-        "y": 1740,
+        "x": 1430,
+        "y": 1960,
         "wires": [
             [
                 "ae5baa1e.1a4b28",
