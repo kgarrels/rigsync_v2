@@ -360,7 +360,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "f \\n",
+        "payload": "f",
         "payloadType": "str",
         "x": 300,
         "y": 1780,
@@ -850,6 +850,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 590,
         "y": 1780,
         "wires": [
@@ -1267,6 +1268,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 570,
         "y": 1560,
         "wires": [
@@ -1281,7 +1283,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
