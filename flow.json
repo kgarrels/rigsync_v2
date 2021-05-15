@@ -363,7 +363,7 @@
         "y": 1780,
         "wires": [
             [
-                "1a9b3bc4.0b93a4"
+                "19155f3d.673741"
             ]
         ]
     },
@@ -1471,25 +1471,6 @@
             [
                 "ae5baa1e.1a4b28",
                 "31c358fd.ece39"
-            ]
-        ]
-    },
-    {
-        "id": "1a9b3bc4.0b93a4",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "add CR",
-        "func": "//msg.payload=msg.payload + \"\\r\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 1780,
-        "wires": [
-            [
-                "19155f3d.673741"
             ]
         ]
     },
