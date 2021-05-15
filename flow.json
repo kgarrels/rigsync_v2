@@ -337,7 +337,8 @@
         "y": 1500,
         "wires": [
             [
-                "fd95c714.e3eaf"
+                "15c88d3f.82c72b",
+                "f640adee.ffb1d8"
             ]
         ]
     },
@@ -1042,7 +1043,8 @@
         "y": 1560,
         "wires": [
             [
-                "fd95c714.e3eaf"
+                "15c88d3f.82c72b",
+                "f640adee.ffb1d8"
             ]
         ]
     },
@@ -1487,7 +1489,7 @@
         "y": 1780,
         "wires": [
             [
-                "9dc780d.65e6a8"
+                "15c88d3f.82c72b"
             ]
         ]
     },
@@ -1512,42 +1514,22 @@
         ]
     },
     {
-        "id": "9dc780d.65e6a8",
-        "type": "throttle",
+        "id": "15c88d3f.82c72b",
+        "type": "split",
         "z": "2567a318.c428a4",
         "name": "",
-        "throttleType": "time",
-        "timeLimit": "0.02",
-        "timeLimitType": "seconds",
-        "countLimit": 0,
-        "blockSize": 0,
-        "locked": false,
-        "x": 600,
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 570,
         "y": 1780,
         "wires": [
             [
-                "3ddeec28.45f1b4",
-                "f95d4ba4.944fd8"
-            ]
-        ]
-    },
-    {
-        "id": "fd95c714.e3eaf",
-        "type": "throttle",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "throttleType": "time",
-        "timeLimit": "0.02",
-        "timeLimitType": "seconds",
-        "countLimit": 0,
-        "blockSize": 0,
-        "locked": false,
-        "x": 580,
-        "y": 1640,
-        "wires": [
-            [
-                "9dc780d.65e6a8",
-                "f640adee.ffb1d8"
+                "f95d4ba4.944fd8",
+                "3ddeec28.45f1b4"
             ]
         ]
     }
