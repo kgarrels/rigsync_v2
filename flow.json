@@ -431,7 +431,7 @@
             "a04f7c82.2c3d1",
             "54bc4149.107d4"
         ],
-        "x": 255,
+        "x": 215,
         "y": 1500,
         "wires": [
             [
@@ -1039,7 +1039,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 360,
         "y": 1560,
         "wires": [
             [
@@ -1057,7 +1057,7 @@
             "56f23373.eea424",
             "6664f06a.70a65"
         ],
-        "x": 255,
+        "x": 215,
         "y": 1560,
         "wires": [
             [
@@ -1242,7 +1242,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1427,7 +1427,7 @@
         "out": "sit",
         "splitc": " ",
         "name": "",
-        "x": 850,
+        "x": 990,
         "y": 1780,
         "wires": [
             [
@@ -1490,8 +1490,8 @@
         "y": 1780,
         "wires": [
             [
-                "3ddeec28.45f1b4",
-                "f95d4ba4.944fd8"
+                "f95d4ba4.944fd8",
+                "65231c2d.04325c"
             ]
         ]
     },
@@ -1511,6 +1511,25 @@
         "wires": [
             [
                 "b8d9e02b.c3e198"
+            ]
+        ]
+    },
+    {
+        "id": "65231c2d.04325c",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "add CR",
+        "func": "msg.payload=msg.payload + \"\\r\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1780,
+        "wires": [
+            [
+                "3ddeec28.45f1b4"
             ]
         ]
     }
