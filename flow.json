@@ -360,7 +360,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "f\\n",
+        "payload": "f \\n",
         "payloadType": "str",
         "x": 300,
         "y": 1780,
