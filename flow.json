@@ -1536,7 +1536,7 @@
         "z": "2567a318.c428a4",
         "name": "",
         "throttleType": "time",
-        "timeLimit": 0,
+        "timeLimit": "0.01",
         "timeLimitType": "seconds",
         "countLimit": 0,
         "blockSize": 0,
