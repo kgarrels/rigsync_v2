@@ -1522,7 +1522,7 @@
         "spltType": "str",
         "arraySplt": 1,
         "arraySpltType": "len",
-        "stream": false,
+        "stream": true,
         "addname": "",
         "x": 570,
         "y": 1780,
