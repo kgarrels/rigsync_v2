@@ -1286,7 +1286,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx response",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1429,7 +1429,9 @@
         "x": 990,
         "y": 1780,
         "wires": [
-            []
+            [
+                "caa8281e.b04338"
+            ]
         ]
     },
     {
@@ -1508,43 +1510,8 @@
         "wires": [
             [
                 "f95d4ba4.944fd8",
-                "98a0503d.87a8"
+                "3ddeec28.45f1b4"
             ]
         ]
-    },
-    {
-        "id": "d0212f86.7a6028",
-        "type": "tcp in",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "server": "server",
-        "host": "",
-        "port": "7356",
-        "datamode": "stream",
-        "datatype": "buffer",
-        "newline": "",
-        "topic": "",
-        "base64": false,
-        "x": 370,
-        "y": 2000,
-        "wires": [
-            [
-                "caa8281e.b04338"
-            ]
-        ]
-    },
-    {
-        "id": "98a0503d.87a8",
-        "type": "tcp out",
-        "z": "2567a318.c428a4",
-        "host": "localhost",
-        "port": "7356",
-        "beserver": "client",
-        "base64": false,
-        "end": true,
-        "name": "",
-        "x": 840,
-        "y": 1740,
-        "wires": []
     }
 ]
