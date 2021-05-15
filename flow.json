@@ -338,8 +338,7 @@
         "wires": [
             [
                 "f640adee.ffb1d8",
-                "6316ed44.5d98b4",
-                "fbb7d9aa.e9a83"
+                "1384c8b8.ec9caf"
             ]
         ]
     },
@@ -364,7 +363,7 @@
         "y": 1780,
         "wires": [
             [
-                "fbb7d9aa.e9a83"
+                "1384c8b8.ec9caf"
             ]
         ]
     },
@@ -446,8 +445,8 @@
         "z": "2567a318.c428a4",
         "name": "poll gqrx for changes",
         "info": "",
-        "x": 280,
-        "y": 1720,
+        "x": 200,
+        "y": 1700,
         "wires": []
     },
     {
@@ -1045,8 +1044,7 @@
         "wires": [
             [
                 "f640adee.ffb1d8",
-                "6316ed44.5d98b4",
-                "fbb7d9aa.e9a83"
+                "1384c8b8.ec9caf"
             ]
         ]
     },
@@ -1497,65 +1495,23 @@
         ]
     },
     {
-        "id": "6316ed44.5d98b4",
-        "type": "batch",
+        "id": "1384c8b8.ec9caf",
+        "type": "throttle",
         "z": "2567a318.c428a4",
         "name": "",
-        "mode": "count",
-        "count": "1",
-        "overlap": 0,
-        "interval": 10,
-        "allowEmptySequence": false,
-        "topics": [],
-        "x": 650,
+        "throttleType": "time",
+        "timeLimit": 0,
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 550,
         "y": 1780,
         "wires": [
             [
-                "3ddeec28.45f1b4",
-                "f95d4ba4.944fd8"
+                "f95d4ba4.944fd8",
+                "3ddeec28.45f1b4"
             ]
         ]
-    },
-    {
-        "id": "fbb7d9aa.e9a83",
-        "type": "trigger",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "op1": "",
-        "op2": "f",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "250",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 280,
-        "y": 1900,
-        "wires": [
-            [
-                "37ae1894.0e3c1",
-                "6316ed44.5d98b4"
-            ]
-        ]
-    },
-    {
-        "id": "37ae1894.0e3c1",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 560,
-        "y": 1920,
-        "wires": []
     }
 ]
