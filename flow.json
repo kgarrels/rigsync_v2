@@ -349,10 +349,6 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "0.35",
@@ -362,11 +358,11 @@
         "topic": "",
         "payload": "f ",
         "payloadType": "str",
-        "x": 300,
+        "x": 200,
         "y": 1780,
         "wires": [
             [
-                "b8d9e02b.c3e198"
+                "1a9b3bc4.0b93a4"
             ]
         ]
     },
@@ -1514,6 +1510,25 @@
             [
                 "3ddeec28.45f1b4",
                 "f95d4ba4.944fd8"
+            ]
+        ]
+    },
+    {
+        "id": "1a9b3bc4.0b93a4",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "add \";\"",
+        "func": "msg.payload=msg.payload + \"\\n\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1780,
+        "wires": [
+            [
+                "b8d9e02b.c3e198"
             ]
         ]
     }
