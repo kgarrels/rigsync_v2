@@ -337,8 +337,7 @@
         "y": 1500,
         "wires": [
             [
-                "f640adee.ffb1d8",
-                "9dc780d.65e6a8"
+                "fd95c714.e3eaf"
             ]
         ]
     },
@@ -1043,8 +1042,7 @@
         "y": 1560,
         "wires": [
             [
-                "f640adee.ffb1d8",
-                "9dc780d.65e6a8"
+                "fd95c714.e3eaf"
             ]
         ]
     },
@@ -1548,6 +1546,26 @@
         "wires": [
             [
                 "65231c2d.04325c"
+            ]
+        ]
+    },
+    {
+        "id": "fd95c714.e3eaf",
+        "type": "throttle",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": 0,
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 580,
+        "y": 1640,
+        "wires": [
+            [
+                "9dc780d.65e6a8",
+                "f640adee.ffb1d8"
             ]
         ]
     }
