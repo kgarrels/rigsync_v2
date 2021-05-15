@@ -1016,7 +1016,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 mode change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1123,8 +1123,7 @@
                 "40e4c795.2be6d8"
             ],
             [
-                "b91c5712.c10e98",
-                "6664f06a.70a65"
+                "8e2dcb79.acf7f"
             ],
             [],
             [
@@ -1242,7 +1241,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1530,6 +1529,26 @@
         "wires": [
             [
                 "3ddeec28.45f1b4"
+            ]
+        ]
+    },
+    {
+        "id": "8e2dcb79.acf7f",
+        "type": "rbe",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1070,
+        "y": 520,
+        "wires": [
+            [
+                "6664f06a.70a65",
+                "b91c5712.c10e98"
             ]
         ]
     }
