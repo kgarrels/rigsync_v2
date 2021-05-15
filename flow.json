@@ -337,7 +337,8 @@
         "y": 1500,
         "wires": [
             [
-                "1d58bddc.5b678a"
+                "b8d9e02b.c3e198",
+                "f640adee.ffb1d8"
             ]
         ]
     },
@@ -1042,7 +1043,8 @@
         "y": 1560,
         "wires": [
             [
-                "1d58bddc.5b678a"
+                "b8d9e02b.c3e198",
+                "f640adee.ffb1d8"
             ]
         ]
     },
@@ -1506,45 +1508,6 @@
         "libs": [],
         "x": 380,
         "y": 1780,
-        "wires": [
-            [
-                "b8d9e02b.c3e198"
-            ]
-        ]
-    },
-    {
-        "id": "1d58bddc.5b678a",
-        "type": "split",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 570,
-        "y": 1560,
-        "wires": [
-            [
-                "f640adee.ffb1d8",
-                "6e356a48.aa6d3c"
-            ]
-        ]
-    },
-    {
-        "id": "6e356a48.aa6d3c",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "add NL",
-        "func": "msg.payload=msg.payload + \"\\n\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 1660,
         "wires": [
             [
                 "b8d9e02b.c3e198"
