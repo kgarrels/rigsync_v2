@@ -844,14 +844,14 @@
         "id": "12ed6514.61470b",
         "type": "function",
         "z": "2567a318.c428a4",
-        "name": "add NL",
-        "func": "//msg.payload = msg.payload + \"\\r\";\n\nreturn msg;",
+        "name": "pass",
+        "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 590,
         "y": 1780,
         "wires": [
             [
