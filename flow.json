@@ -845,7 +845,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "add NL",
-        "func": "msg.payload = msg.payload + \"\\n\";\n\nreturn msg;",
+        "func": "msg.payload = msg.payload + \"\\n\\r\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
