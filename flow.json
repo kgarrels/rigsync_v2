@@ -1492,25 +1492,6 @@
         ]
     },
     {
-        "id": "65231c2d.04325c",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "add CR",
-        "func": "msg.payload=msg.payload + \"\\r\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 760,
-        "y": 1780,
-        "wires": [
-            [
-                "3ddeec28.45f1b4"
-            ]
-        ]
-    },
-    {
         "id": "8e2dcb79.acf7f",
         "type": "rbe",
         "z": "2567a318.c428a4",
@@ -1545,7 +1526,8 @@
         "y": 1780,
         "wires": [
             [
-                "65231c2d.04325c"
+                "3ddeec28.45f1b4",
+                "f95d4ba4.944fd8"
             ]
         ]
     },
