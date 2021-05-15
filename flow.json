@@ -366,7 +366,7 @@
         "y": 1780,
         "wires": [
             [
-                "12ed6514.61470b"
+                "b8d9e02b.c3e198"
             ]
         ]
     },
@@ -841,26 +841,6 @@
         "wires": []
     },
     {
-        "id": "12ed6514.61470b",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 1780,
-        "wires": [
-            [
-                "f95d4ba4.944fd8",
-                "3ddeec28.45f1b4"
-            ]
-        ]
-    },
-    {
         "id": "caa8281e.b04338",
         "type": "function",
         "z": "2567a318.c428a4",
@@ -1275,7 +1255,7 @@
         "wires": [
             [
                 "f640adee.ffb1d8",
-                "12ed6514.61470b"
+                "b8d9e02b.c3e198"
             ]
         ]
     },
@@ -1514,6 +1494,26 @@
             [
                 "ae5baa1e.1a4b28",
                 "31c358fd.ece39"
+            ]
+        ]
+    },
+    {
+        "id": "b8d9e02b.c3e198",
+        "type": "split",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "splt": "",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": true,
+        "addname": "",
+        "x": 570,
+        "y": 1780,
+        "wires": [
+            [
+                "3ddeec28.45f1b4",
+                "f95d4ba4.944fd8"
             ]
         ]
     }
