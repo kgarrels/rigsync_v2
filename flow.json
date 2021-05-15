@@ -337,8 +337,8 @@
         "y": 1500,
         "wires": [
             [
-                "b8d9e02b.c3e198",
-                "f640adee.ffb1d8"
+                "f640adee.ffb1d8",
+                "9dc780d.65e6a8"
             ]
         ]
     },
@@ -1043,8 +1043,8 @@
         "y": 1560,
         "wires": [
             [
-                "b8d9e02b.c3e198",
-                "f640adee.ffb1d8"
+                "f640adee.ffb1d8",
+                "9dc780d.65e6a8"
             ]
         ]
     },
@@ -1475,26 +1475,6 @@
         ]
     },
     {
-        "id": "b8d9e02b.c3e198",
-        "type": "split",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "splt": "\\r",
-        "spltType": "str",
-        "arraySplt": "1",
-        "arraySpltType": "len",
-        "stream": true,
-        "addname": "",
-        "x": 570,
-        "y": 1780,
-        "wires": [
-            [
-                "f95d4ba4.944fd8",
-                "65231c2d.04325c"
-            ]
-        ]
-    },
-    {
         "id": "1a9b3bc4.0b93a4",
         "type": "function",
         "z": "2567a318.c428a4",
@@ -1509,7 +1489,7 @@
         "y": 1780,
         "wires": [
             [
-                "b8d9e02b.c3e198"
+                "9dc780d.65e6a8"
             ]
         ]
     },
@@ -1549,6 +1529,25 @@
             [
                 "6664f06a.70a65",
                 "b91c5712.c10e98"
+            ]
+        ]
+    },
+    {
+        "id": "9dc780d.65e6a8",
+        "type": "throttle",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": 0,
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 600,
+        "y": 1780,
+        "wires": [
+            [
+                "65231c2d.04325c"
             ]
         ]
     }
