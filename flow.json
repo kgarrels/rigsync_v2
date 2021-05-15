@@ -327,7 +327,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "set GQRX frequency",
-        "func": "f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\nmsg.payload = \"F \" + f +\"\\n\";\n\nreturn msg;",
+        "func": "f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\nmsg.payload = \"F \" + f +\"\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1061,6 +1061,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 370,
         "y": 1560,
         "wires": [
