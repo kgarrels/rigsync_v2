@@ -1518,7 +1518,7 @@
         "type": "split",
         "z": "2567a318.c428a4",
         "name": "",
-        "splt": "\\n",
+        "splt": "\\r",
         "spltType": "str",
         "arraySplt": 1,
         "arraySpltType": "len",
