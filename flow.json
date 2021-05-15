@@ -336,9 +336,7 @@
         "x": 380,
         "y": 1500,
         "wires": [
-            [
-                "5c218eb8.f79168"
-            ]
+            []
         ]
     },
     {
@@ -1041,9 +1039,7 @@
         "x": 370,
         "y": 1560,
         "wires": [
-            [
-                "5c218eb8.f79168"
-            ]
+            []
         ]
     },
     {
@@ -1223,7 +1219,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx request",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1234,26 +1230,6 @@
         "x": 770,
         "y": 1840,
         "wires": []
-    },
-    {
-        "id": "5c218eb8.f79168",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 1560,
-        "wires": [
-            [
-                "f640adee.ffb1d8",
-                "b8d9e02b.c3e198"
-            ]
-        ]
     },
     {
         "id": "f640adee.ffb1d8",
