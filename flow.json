@@ -1499,7 +1499,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "pass",
-        "func": "\nreturn msg;",
+        "func": "msg.payload += \"\\n\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
