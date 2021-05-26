@@ -173,25 +173,6 @@
         }
     },
     {
-        "id": "70b66c90.11cfbc",
-        "type": "serial-port",
-        "serialport": "/dev/tty.SLAB_USBtoUART",
-        "serialbaud": "115200",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "none",
-        "dsr": "none",
-        "newline": "\\n",
-        "bin": "false",
-        "out": "char",
-        "addchar": "",
-        "responsetimeout": "10000"
-    },
-    {
         "id": "11a4a0d0.2b8ecf",
         "type": "switch",
         "z": "3b36acf1.93ddd4",
@@ -573,8 +554,7 @@
         "y": 880,
         "wires": [
             [
-                "b1a26db2.974628",
-                "97370988.41cd78"
+                "b1a26db2.974628"
             ]
         ]
     },
@@ -851,8 +831,7 @@
         "y": 80,
         "wires": [
             [
-                "62c944fd.f62f44",
-                "13a62d09.f87b73"
+                "62c944fd.f62f44"
             ]
         ]
     },
@@ -1443,43 +1422,5 @@
                 "3ddeec28.45f1b4"
             ]
         ]
-    },
-    {
-        "id": "13a62d09.f87b73",
-        "type": "serial request",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "serial": "70b66c90.11cfbc",
-        "x": 890,
-        "y": 100,
-        "wires": [
-            [
-                "62c944fd.f62f44"
-            ]
-        ]
-    },
-    {
-        "id": "37af71d6.ae547e",
-        "type": "serial in",
-        "z": "2567a318.c428a4",
-        "name": "ts590",
-        "serial": "70b66c90.11cfbc",
-        "x": 100,
-        "y": 500,
-        "wires": [
-            [
-                "80206118.6f18c8"
-            ]
-        ]
-    },
-    {
-        "id": "97370988.41cd78",
-        "type": "serial out",
-        "z": "2567a318.c428a4",
-        "name": "ts590",
-        "serial": "70b66c90.11cfbc",
-        "x": 1140,
-        "y": 880,
-        "wires": []
     }
 ]
