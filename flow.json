@@ -86,14 +86,14 @@
         "stopbits": "1",
         "waitfor": "",
         "dtr": "none",
-        "rts": "none",
-        "cts": "none",
+        "rts": "high",
+        "cts": "high",
         "dsr": "none",
         "newline": ";",
         "bin": "false",
         "out": "char",
         "addchar": "",
-        "responsetimeout": "10000"
+        "responsetimeout": "20"
     },
     {
         "id": "11a4a0d0.2b8ecf",
