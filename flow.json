@@ -77,25 +77,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "7157d0ac.afd278",
-        "type": "serial-port",
-        "serialport": "/dev/tty.SLAB_USBtoUART",
-        "serialbaud": "115200",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "high",
-        "dsr": "none",
-        "newline": ";",
-        "bin": "false",
-        "out": "char",
-        "addchar": "",
-        "responsetimeout": "100"
-    },
-    {
         "id": "423c9b32.8bdc7c",
         "type": "ui_base",
         "theme": {
@@ -192,6 +173,25 @@
         }
     },
     {
+        "id": "7157d0ac.afd278",
+        "type": "serial-port",
+        "serialport": "/dev/tty.SLAB_USBtoUART",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "high",
+        "dsr": "none",
+        "newline": ";",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "100"
+    },
+    {
         "id": "41edda2f.16af1c",
         "type": "serial-port",
         "serialport": "/dev/tty.usbserial-0000000058",
@@ -265,21 +265,6 @@
                 "316d561a.03107a"
             ],
             []
-        ]
-    },
-    {
-        "id": "71b0ab3f.2ce86c",
-        "type": "serial in",
-        "z": "2567a318.c428a4",
-        "name": "TS590 serial in",
-        "serial": "7157d0ac.afd278",
-        "x": 100,
-        "y": 500,
-        "wires": [
-            [
-                "15fc324b.d35cf6",
-                "80206118.6f18c8"
-            ]
         ]
     },
     {
@@ -534,16 +519,6 @@
         "wires": []
     },
     {
-        "id": "20afbe05.00aec2",
-        "type": "serial out",
-        "z": "2567a318.c428a4",
-        "name": "TS590 serial out",
-        "serial": "7157d0ac.afd278",
-        "x": 1160,
-        "y": 860,
-        "wires": []
-    },
-    {
         "id": "b8913ddd.bcf758",
         "type": "link in",
         "z": "2567a318.c428a4",
@@ -617,7 +592,6 @@
         "y": 880,
         "wires": [
             [
-                "20afbe05.00aec2",
                 "b1a26db2.974628"
             ]
         ]
@@ -892,21 +866,6 @@
         "initialize": "",
         "finalize": "",
         "x": 600,
-        "y": 80,
-        "wires": [
-            [
-                "ffd268a4.85e498",
-                "62c944fd.f62f44"
-            ]
-        ]
-    },
-    {
-        "id": "ffd268a4.85e498",
-        "type": "serial request",
-        "z": "2567a318.c428a4",
-        "name": "ts590",
-        "serial": "7157d0ac.afd278",
-        "x": 790,
         "y": 80,
         "wires": [
             [
@@ -1313,8 +1272,7 @@
         "y": 2422.8499755859375,
         "wires": [
             [
-                "9200e33d.91e698",
-                "b7d5b113.e2ab08"
+                "9200e33d.91e698"
             ]
         ]
     },
@@ -1351,17 +1309,6 @@
                 "dd935903.3d2ba8"
             ]
         ]
-    },
-    {
-        "id": "b7d5b113.e2ab08",
-        "type": "serial out",
-        "z": "2567a318.c428a4",
-        "d": true,
-        "name": "HF1000",
-        "serial": "41edda2f.16af1c",
-        "x": 580,
-        "y": 2420,
-        "wires": []
     },
     {
         "id": "40e4c795.2be6d8",
