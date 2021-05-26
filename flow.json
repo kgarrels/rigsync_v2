@@ -869,7 +869,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
+        "x": 1030,
         "y": 200,
         "wires": []
     },
