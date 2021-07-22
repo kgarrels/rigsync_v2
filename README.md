@@ -2,8 +2,9 @@ rigsync_v2
 ==========
 
 sync rigs, improved version
+(c) 2021 Kai Garrels kai.garrels(at)me.com
 
-### Produktinfo
 
-Dies ist die Datei README.md Ihres Projekts. Es hilft den Benutzern zu verstehen, was Ihr
-Projekt macht, wie man es verwendet und alles andere, was sie vielleicht wissen müssen.
+### Background
+
+Sync ham rigs, in this case Kenwood TS-590SG with gqrx runninng locally.
