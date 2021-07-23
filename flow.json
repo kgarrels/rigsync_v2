@@ -1608,12 +1608,12 @@
         "id": "47bba021bcf7a609",
         "type": "catch",
         "z": "2567a318.c428a4",
-        "name": "",
+        "name": "cat gqrx tcp errors",
         "scope": [
             "3ddeec28.45f1b4"
         ],
         "uncaught": false,
-        "x": 960,
+        "x": 1000,
         "y": 1720,
         "wires": [
             [
