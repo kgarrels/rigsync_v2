@@ -1626,7 +1626,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "gqrx tcp error",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
