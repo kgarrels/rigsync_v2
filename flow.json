@@ -116,6 +116,14 @@
         "responsetimeout": "50"
     },
     {
+        "id": "c7c1fa79768ee5b3",
+        "type": "websocket-client",
+        "path": "ws://127.0.01:50001",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0"
+    },
+    {
         "id": "11a4a0d0.2b8ecf",
         "type": "switch",
         "z": "3b36acf1.93ddd4",
@@ -226,7 +234,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "set GQRX frequency",
-        "func": "var f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\nmsg.payload = \"F \" + f ;\n\nreturn msg;",
+        "func": "var f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\nmsg.payload = \"F \" + f ;\nflow.set(\"gqrx_freq\", f);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -334,7 +342,8 @@
         "y": 1500,
         "wires": [
             [
-                "3a8bdc2c.156d54"
+                "3a8bdc2c.156d54",
+                "6b598264627008ae"
             ]
         ]
     },
@@ -357,8 +366,8 @@
             "6c640c27.c92afc",
             "b8913ddd.bcf758"
         ],
-        "x": 1555,
-        "y": 1960,
+        "x": 1435,
+        "y": 1980,
         "wires": []
     },
     {
@@ -383,7 +392,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "gqrx freq",
-        "func": "var f = parseInt(msg.payload);\n\nmsg.payload = f;\n\nreturn msg;",
+        "func": "var f = parseInt(msg.payload);\n\n\nif (f == flow.get(\"gqrx_freq\")) {\n    return;\n}\n\nflow.set(\"gqrx_freq\", f);\nmsg.payload = f;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -393,7 +402,8 @@
         "y": 2020,
         "wires": [
             [
-                "9210a2c1.b101b"
+                "31c358fd.ece39",
+                "ae5baa1e.1a4b28"
             ]
         ]
     },
@@ -402,7 +412,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "build ts590 FA cmd",
-        "func": "\nif (msg.payload == flow.get(\"ts590_freq\")){\n    return ;\n}\n\n\nvar f = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nmsg.payload = \"FA\" + f + \";\";\nreturn msg;",
+        "func": "\nif (msg.payload == flow.get(\"ts590_freq\")){\n    return ;\n}\n\nflow.set(\"ts590_freq\", f);\nvar f = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nmsg.payload = \"FA\" + f + \";\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -412,8 +422,7 @@
         "y": 900,
         "wires": [
             [
-                "ae71736d.90f3a8",
-                "f9e1b27.8e2b3d"
+                "ae71736d.90f3a8"
             ]
         ]
     },
@@ -422,7 +431,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -461,7 +470,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "3",
+        "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -481,7 +490,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 freq change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1246,33 +1255,6 @@
         ]
     },
     {
-        "id": "9210a2c1.b101b",
-        "type": "change",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gqrx_freq",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1400,
-        "y": 2020,
-        "wires": [
-            [
-                "212ff327.13efa4"
-            ]
-        ]
-    },
-    {
         "id": "3ddeec28.45f1b4",
         "type": "tcp request",
         "z": "2567a318.c428a4",
@@ -1306,26 +1288,6 @@
             [
                 "54bc4149.107d4",
                 "bba28a01.d07"
-            ]
-        ]
-    },
-    {
-        "id": "212ff327.13efa4",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "x": 1430,
-        "y": 1960,
-        "wires": [
-            [
-                "ae5baa1e.1a4b28",
-                "31c358fd.ece39"
             ]
         ]
     },
@@ -1589,22 +1551,6 @@
         "wires": []
     },
     {
-        "id": "f9e1b27.8e2b3d",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 960,
-        "wires": []
-    },
-    {
         "id": "47bba021bcf7a609",
         "type": "catch",
         "z": "2567a318.c428a4",
@@ -1636,6 +1582,92 @@
         "statusType": "auto",
         "x": 1210,
         "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "6d7bb8dac6e2aa53",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "pass",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 420,
+        "wires": [
+            [
+                "54bc4149.107d4",
+                "bba28a01.d07"
+            ]
+        ]
+    },
+    {
+        "id": "97cb8b5976fc0928",
+        "type": "websocket in",
+        "z": "2567a318.c428a4",
+        "d": true,
+        "name": "tci",
+        "server": "",
+        "client": "c7c1fa79768ee5b3",
+        "x": 150,
+        "y": 2640,
+        "wires": [
+            [
+                "83839143685b70a6"
+            ]
+        ]
+    },
+    {
+        "id": "91aeb102a12297a6",
+        "type": "websocket out",
+        "z": "2567a318.c428a4",
+        "d": true,
+        "name": "tci",
+        "server": "",
+        "client": "c7c1fa79768ee5b3",
+        "x": 630,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "6b598264627008ae",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "d": true,
+        "name": "set tci frequency",
+        "func": "var f = parseInt(msg.payload);\n\n/*if (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n*/\nmsg.payload = \"vfo:0,0,\" + f +\";\";\n//flow.set(\"gqrx_freq\", f);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 2740,
+        "wires": [
+            [
+                "91aeb102a12297a6",
+                "83839143685b70a6"
+            ]
+        ]
+    },
+    {
+        "id": "83839143685b70a6",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "d": true,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 2640,
         "wires": []
     }
 ]
