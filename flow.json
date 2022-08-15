@@ -11,6 +11,14 @@
         "id": "8a2421553543bf8c",
         "type": "tab",
         "label": "Expert Colibri ",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "412a91c359181f25",
+        "type": "tab",
+        "label": "Flow 1",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,8 +26,8 @@
     {
         "id": "5890b6cb88371fda",
         "type": "tab",
-        "label": "EB500",
-        "disabled": false,
+        "label": "handle EB500",
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -60,12 +68,12 @@
                 "y": 120,
                 "wires": [
                     {
-                        "id": "fc917a39.138f1",
-                        "port": 0
-                    },
-                    {
                         "id": "368f38c5.fde2d8",
                         "port": 1
+                    },
+                    {
+                        "id": "fc917a39.138f1",
+                        "port": 0
                     }
                 ]
             },
@@ -101,21 +109,21 @@
             },
             {
                 "x": 620,
-                "y": 300,
-                "wires": [
-                    {
-                        "id": "11a4a0d0.2b8ecf",
-                        "port": "7"
-                    }
-                ]
-            },
-            {
-                "x": 840,
-                "y": 400,
+                "y": 220,
                 "wires": [
                     {
                         "id": "11a4a0d0.2b8ecf",
                         "port": 6
+                    }
+                ]
+            },
+            {
+                "x": 620,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "11a4a0d0.2b8ecf",
+                        "port": 7
                     }
                 ]
             }
@@ -195,17 +203,57 @@
             "e1d0222629c0ae1c",
             "e4f098759b71b749",
             "49ad81099a795091",
-            "b7b41eceef7cf127",
             "cf4eadb5486f51b1",
             "3ba46a068e8a81b0",
             "2ae4c3431b954887",
             "4f60e35817c63e86",
-            "158623bf9ff27171"
+            "ba74f7530e91e907",
+            "4a7d395589773f95"
         ],
-        "x": 94,
+        "x": 114,
         "y": 1299,
         "w": 972,
         "h": 202
+    },
+    {
+        "id": "e914de2a89715c03",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "db91e5b6.ac58a8"
+            ]
+        ]
+    },
+    {
+        "id": "ba74f7530e91e907",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "x": 460,
+        "y": 1340,
+        "wires": [
+            [
+                "e4f098759b71b749",
+                "49ad81099a795091"
+            ]
+        ]
+    },
+    {
+        "id": "4a7d395589773f95",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "x": 840,
+        "y": 1340,
+        "wires": [
+            [
+                "cf4eadb5486f51b1",
+                "244a4186.25bb56"
+            ]
+        ]
     },
     {
         "id": "c7c1fa79768ee5b3",
@@ -218,7 +266,7 @@
     {
         "id": "170a6b400dc38492",
         "type": "serial-port",
-        "serialport": "/dev/tty.SLAB_USBtoUART",
+        "serialport": "/dev/tty.usbserial-142210",
         "serialbaud": "115200",
         "databits": "8",
         "parity": "none",
@@ -226,13 +274,27 @@
         "waitfor": "",
         "dtr": "none",
         "rts": "none",
-        "cts": "none",
+        "cts": "high",
         "dsr": "none",
         "newline": ";",
         "bin": "false",
         "out": "char",
         "addchar": "",
         "responsetimeout": "10000"
+    },
+    {
+        "id": "07054158deaeee18",
+        "type": "influxdb",
+        "hostname": "192.168.1.20",
+        "port": "8086",
+        "protocol": "http",
+        "database": "home",
+        "name": "iotstack",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
     },
     {
         "id": "11a4a0d0.2b8ecf",
@@ -250,13 +312,13 @@
             },
             {
                 "t": "regex",
-                "v": "^MD",
+                "v": "^OM0",
                 "vt": "str",
                 "case": false
             },
             {
                 "t": "regex",
-                "v": "^XI",
+                "v": "^SF0",
                 "vt": "str",
                 "case": false
             },
@@ -280,7 +342,7 @@
             },
             {
                 "t": "regex",
-                "v": "^AG",
+                "v": "^(TX|RX)",
                 "vt": "str",
                 "case": false
             },
@@ -331,31 +393,16 @@
         ]
     },
     {
-        "id": "fc917a39.138f1",
-        "type": "function",
-        "z": "3b36acf1.93ddd4",
-        "name": "TS590 \"MD\"",
-        "func": "f = parseInt(msg.payload.slice(2,3));\nmsg.payload = f;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 890,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "368f38c5.fde2d8",
         "type": "function",
         "z": "3b36acf1.93ddd4",
-        "name": "TS590 \"XI\"",
-        "func": "f = parseInt(msg.payload.slice(2,13));\nm = parseInt(msg.payload.slice(13,14));\n\n\nvar msg1 = { payload: f};\nvar msg2 = { payload: m};\n\nreturn [msg1, msg2];",
+        "name": "TS590 \"SF0\"",
+        "func": "var f = parseInt(msg.payload.slice(3,14));\nvar m = msg.payload.slice(14,15);\n\n\nvar msg1 = { payload: f};\nvar msg2 = { payload: m};\n\nreturn [msg1, msg2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 890,
         "y": 140,
         "wires": [
@@ -401,7 +448,7 @@
         "type": "function",
         "z": "3b36acf1.93ddd4",
         "name": "TS590 \"SH\"",
-        "func": "f = parseInt(msg.payload.slice(2,4));\nmsg.payload = f;\nreturn msg;",
+        "func": "var f = parseInt(msg.payload.slice(2,6));\nmsg.payload = f;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -409,6 +456,23 @@
         "libs": [],
         "x": 890,
         "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc917a39.138f1",
+        "type": "function",
+        "z": "3b36acf1.93ddd4",
+        "name": "TS590 \"OM0\"",
+        "func": "var f = msg.payload.slice(3,4);\nmsg.payload = f;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 100,
         "wires": [
             []
         ]
@@ -573,7 +637,8 @@
         "z": "2567a318.c428a4",
         "name": "",
         "links": [
-            "9a67ec499719f61e"
+            "9a67ec499719f61e",
+            "80bbd2c6ac8a0123"
         ],
         "x": 135,
         "y": 900,
@@ -593,12 +658,12 @@
                 "p": "payload"
             }
         ],
-        "repeat": "3",
+        "repeat": "2",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "VS00;AI4;XI;PS;SH;",
+        "payload": "AI4;SH0;FA;OM0;",
         "payloadType": "str",
         "x": 400,
         "y": 840,
@@ -649,9 +714,9 @@
         "id": "26503017.ccbd1",
         "type": "comment",
         "z": "2567a318.c428a4",
-        "name": "handle gqrx",
+        "name": "gqrx cmd",
         "info": "",
-        "x": 110,
+        "x": 100,
         "y": 1260,
         "wires": []
     },
@@ -684,12 +749,12 @@
         "id": "b5803ae8.706908",
         "type": "tcp out",
         "z": "2567a318.c428a4",
+        "name": "RUMLOG TCP out",
         "host": "localhost",
         "port": "8888",
         "beserver": "reply",
         "base64": false,
         "end": false,
-        "name": "RUMLOG TCP out",
         "x": 1110,
         "y": 1080,
         "wires": []
@@ -802,7 +867,7 @@
         "y": 80,
         "wires": [
             [
-                "3fc3c1d.32b333e"
+                "e914de2a89715c03"
             ]
         ]
     },
@@ -818,7 +883,7 @@
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 80,
+        "y": 140,
         "wires": [
             [
                 "62c944fd.f62f44",
@@ -831,7 +896,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 direct command",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -840,27 +905,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 830,
-        "y": 160,
+        "y": 220,
         "wires": []
-    },
-    {
-        "id": "3fc3c1d.32b333e",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 390,
-        "y": 80,
-        "wires": [
-            [
-                "db91e5b6.ac58a8",
-                "62c944fd.f62f44"
-            ]
-        ]
     },
     {
         "id": "d0364bde.8c3e28",
@@ -887,7 +933,7 @@
         "y": 120,
         "wires": [
             [
-                "3fc3c1d.32b333e"
+                "e914de2a89715c03"
             ]
         ]
     },
@@ -896,7 +942,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 mode change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -914,7 +960,7 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "set GQRX mode",
-        "func": "var mode=\"\", bw=0;\nvar m = flow.get(\"ts590_mode\");\nswitch (m) {\n    case 1: mode = \"LSB\"; \n            break;\n    case 2: mode = \"USB\";\n            break;\n    case 3: mode = \"CW\";\n            break;\n    case 4: mode = \"FM\";\n            break;\n    case 5: mode = \"AM\";\n            break;\n    case 2: mode = \"FSK\";\n            break;\n    default: mode = \"OFF\"\n}\n\nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n    case 0: bw = 1200; \n            break;\n    case 1: bw = 1200; \n            break;\n    case 2: bw = 1400; \n            break;\n    case 3: bw = 1600; \n            break;\n    case 4: bw = 1800; \n            break;\n    case 5: bw = 2000; \n            break;\n    case 6: bw = 2200; \n            break;\n    case 7: bw = 2400; \n            break;\n    case 8: bw = 2600; \n            break;\n    case 9: bw = 2800; \n            break;\n    case 10: bw = 3000; \n            break;\n    case 11: bw = 3400; \n            break;\n    case 12: bw = 4000; \n            break;\n    case 13: bw = 5000; \n            break;\n    default: bw = 2800\n}\n\n\n\nmsg.payload = \"M \" + mode + \" \" + bw;\n\nreturn msg;",
+        "func": "var mode=\"\", bw=0;\nvar m = flow.get(\"ts590_mode\");\nswitch (m) {\n    case \"C\":\n    case \"1\": mode = \"LSB\"; \n            break;\n    case \"D\":\n        case \"2\": mode = \"USB\";\n            break;\n    case \"7\":\n    case \"3\": mode = \"CW\";\n            break;\n    case \"4\": mode = \"FM\";\n            break;\n    case \"5\": mode = \"AM\";\n            break;\n    default: mode = \"OFF\"\n}\n\n/* ts-590 \nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n    case 0: bw = 1200; \n            break;\n    case 1: bw = 1200; \n            break;\n    case 2: bw = 1400; \n            break;\n    case 3: bw = 1600; \n            break;\n    case 4: bw = 1800; \n            break;\n    case 5: bw = 2000; \n            break;\n    case 6: bw = 2200; \n            break;\n    case 7: bw = 2400; \n            break;\n    case 8: bw = 2600; \n            break;\n    case 9: bw = 2800; \n            break;\n    case 10: bw = 3000; \n            break;\n    case 11: bw = 3400; \n            break;\n    case 12: bw = 4000; \n            break;\n    case 13: bw = 5000; \n            break;\n    default: bw = 2800\n}\n*/\n\n/* ts-890 */\nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n        case 0: bw = 600;\n                break;\n        case 1: bw = 700;\n                break;\n        case 2: bw = 800;\n                break;\n        case 3: bw = 900;\n                break;\n        case 4: bw = 1000;\n                break;\n        case 5: bw = 1100;\n                break;\n        case 6: bw = 1200;\n                break;\n        case 7: bw = 1300;\n                break;\n        case 8: bw = 1400;\n                break;\n        case 9: bw = 1500;\n                break;\n        case 10: bw = 1600;\n                break;\n        case 11: bw = 1700;\n                break;\n        case 12: bw = 1800;\n                break;\n        case 13: bw = 19000;\n                break;\n        case 14: bw = 2000;\n                break;\n        case 15: bw = 2100;\n                break;\n        case 16: bw = 2200;\n                break;\n        case 17: bw = 2300;\n                break;\n        case 18: bw = 2400;\n                break;\n        case 19: bw = 2500;\n                break;\n        case 20: bw = 2600;\n                break;\n        case 21: bw = 2700;\n                break;\n        case 22: bw = 2800;\n                break;\n        case 23: bw = 2900;\n                break;\n        case 24: bw = 3000;\n                break;\n        case 25: bw = 3400;\n                break;\n        case 26: bw = 4000;\n                break;\n        case 27: bw = 5000;\n                break;\n        default: bw = 2800\n}\n\n\nmsg.payload = \"M \" + mode + \" \" + bw;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -983,7 +1029,9 @@
             [
                 "98b36d19.e79db"
             ],
-            [],
+            [
+                "0e9ae41ac891c169"
+            ],
             [
                 "8081aebd.d0d328"
             ]
@@ -1056,8 +1104,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 660,
+        "x": 1080,
+        "y": 780,
         "wires": []
     },
     {
@@ -1068,8 +1116,8 @@
         "links": [
             "4c6fcd38.4d3594"
         ],
-        "x": 715,
-        "y": 560,
+        "x": 515,
+        "y": 600,
         "wires": []
     },
     {
@@ -1127,7 +1175,7 @@
         "septopics": true,
         "property": "payload",
         "x": 1330,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "54bc4149.107d4",
@@ -1206,7 +1254,7 @@
         "y": 160,
         "wires": [
             [
-                "3fc3c1d.32b333e"
+                "e914de2a89715c03"
             ]
         ]
     },
@@ -1235,7 +1283,7 @@
             "3669651c.1a03da"
         ],
         "x": 735,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -1317,7 +1365,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 bandwidth change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1343,26 +1391,6 @@
         "wires": []
     },
     {
-        "id": "6d7bb8dac6e2aa53",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1330,
-        "y": 420,
-        "wires": [
-            [
-                "54bc4149.107d4",
-                "bba28a01.d07"
-            ]
-        ]
-    },
-    {
         "id": "a6dfc1c6f43d6fdf",
         "type": "function",
         "z": "2567a318.c428a4",
@@ -1379,7 +1407,8 @@
         "wires": [
             [
                 "dec7e0a2a9e9d2be",
-                "9a67ec499719f61e"
+                "9a67ec499719f61e",
+                "0b00637a58db6d22"
             ]
         ]
     },
@@ -1429,7 +1458,7 @@
         "z": "2567a318.c428a4",
         "g": "a504cb095a9e3597",
         "name": "gqrx freq",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1547,145 +1576,6 @@
         ]
     },
     {
-        "id": "244a4186.25bb56",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "gqrx response",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 1400,
-        "wires": []
-    },
-    {
-        "id": "e1d0222629c0ae1c",
-        "type": "link in",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "gqrx cmd",
-        "links": [],
-        "x": 135,
-        "y": 1340,
-        "wires": [
-            [
-                "4f60e35817c63e86",
-                "158623bf9ff27171"
-            ]
-        ]
-    },
-    {
-        "id": "e4f098759b71b749",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "gqrx request",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 1400,
-        "wires": []
-    },
-    {
-        "id": "49ad81099a795091",
-        "type": "tcp request",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "server": "127.0.0.1",
-        "port": "7356",
-        "out": "sit",
-        "ret": "string",
-        "splitc": " ",
-        "name": "gqrx tcp",
-        "x": 600,
-        "y": 1340,
-        "wires": [
-            [
-                "244a4186.25bb56",
-                "cf4eadb5486f51b1"
-            ]
-        ]
-    },
-    {
-        "id": "b7b41eceef7cf127",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "add CR",
-        "func": "//msg.payload += \"\\n\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 1340,
-        "wires": [
-            [
-                "e4f098759b71b749",
-                "49ad81099a795091"
-            ]
-        ]
-    },
-    {
-        "id": "cf4eadb5486f51b1",
-        "type": "link out",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "",
-        "mode": "return",
-        "links": [],
-        "x": 935,
-        "y": 1340,
-        "wires": []
-    },
-    {
-        "id": "3ba46a068e8a81b0",
-        "type": "catch",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 770,
-        "y": 1460,
-        "wires": [
-            [
-                "2ae4c3431b954887"
-            ]
-        ]
-    },
-    {
-        "id": "2ae4c3431b954887",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "error",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 1460,
-        "wires": []
-    },
-    {
         "id": "df5fec2af253047d",
         "type": "inject",
         "z": "2567a318.c428a4",
@@ -1710,46 +1600,7 @@
         "y": 200,
         "wires": [
             [
-                "3fc3c1d.32b333e"
-            ]
-        ]
-    },
-    {
-        "id": "4f60e35817c63e86",
-        "type": "msg-speed",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "gqrx msgs",
-        "frequency": "sec",
-        "interval": "1",
-        "estimation": false,
-        "ignore": true,
-        "pauseAtStartup": false,
-        "topicDependent": false,
-        "x": 270,
-        "y": 1420,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "158623bf9ff27171",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "g": "2fb69984b9b040bc",
-        "name": "pass",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 260,
-        "y": 1340,
-        "wires": [
-            [
-                "b7b41eceef7cf127"
+                "e914de2a89715c03"
             ]
         ]
     },
@@ -1766,6 +1617,357 @@
         "topicDependent": false,
         "x": 190,
         "y": 600,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0ba63c6de97d34bd",
+        "type": "influxdb out",
+        "z": "2567a318.c428a4",
+        "influxdb": "07054158deaeee18",
+        "name": "trx to network",
+        "measurement": "network",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1200,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "0e9ae41ac891c169",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "tx freq",
+        "func": "var txfreq=flow.get(\"ts590_freq\");\n\nmsg.payload = txfreq/1000000;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 680,
+        "wires": [
+            [
+                "0ba63c6de97d34bd",
+                "8bdb8d34b0e69f7d"
+            ]
+        ]
+    },
+    {
+        "id": "8bdb8d34b0e69f7d",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "trx",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "792f17f74bf4e0ba",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "TX2;",
+        "payloadType": "str",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "e914de2a89715c03"
+            ]
+        ]
+    },
+    {
+        "id": "e5e5e5afef6c1fc1",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "RX;",
+        "payloadType": "str",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "e914de2a89715c03"
+            ]
+        ]
+    },
+    {
+        "id": "7af348e55b0b0ce8",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "gqrx noisefloor",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "2386edcfd5a7cf89",
+        "type": "link call",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "links": [
+            "e1d0222629c0ae1c"
+        ],
+        "timeout": "30",
+        "x": 340,
+        "y": 2160,
+        "wires": [
+            [
+                "ae370ba288f28bb8",
+                "7af348e55b0b0ce8"
+            ]
+        ]
+    },
+    {
+        "id": "297a0353b840715c",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "poll gqrx \"l nf \"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "l nf",
+        "payloadType": "str",
+        "x": 150,
+        "y": 2160,
+        "wires": [
+            [
+                "2386edcfd5a7cf89"
+            ]
+        ]
+    },
+    {
+        "id": "ae370ba288f28bb8",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "gqrx Noisefloor",
+        "func": "var f = parseFloat(msg.payload);\n\nif (isNaN(f)|| f > 0) {\n    return;\n}\n\nmsg.payload = f;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 2160,
+        "wires": [
+            [
+                "a5fc2946c7081592"
+            ]
+        ]
+    },
+    {
+        "id": "a5fc2946c7081592",
+        "type": "range",
+        "z": "2567a318.c428a4",
+        "minin": "-180",
+        "maxin": "-60",
+        "minout": "-20",
+        "maxout": "10",
+        "action": "clamp",
+        "round": false,
+        "property": "payload",
+        "name": "NF mapping",
+        "x": 750,
+        "y": 2160,
+        "wires": [
+            [
+                "7af348e55b0b0ce8"
+            ]
+        ]
+    },
+    {
+        "id": "244a4186.25bb56",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "gqrx response",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "e1d0222629c0ae1c",
+        "type": "link in",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "gqrx cmd",
+        "links": [],
+        "x": 155,
+        "y": 1340,
+        "wires": [
+            [
+                "4f60e35817c63e86",
+                "ba74f7530e91e907"
+            ]
+        ]
+    },
+    {
+        "id": "e4f098759b71b749",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "gqrx request",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "49ad81099a795091",
+        "type": "tcp request",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "gqrx tcp",
+        "server": "127.0.0.1",
+        "port": "7356",
+        "out": "sit",
+        "ret": "string",
+        "splitc": " ",
+        "newline": "\\n",
+        "trim": false,
+        "tls": "",
+        "x": 620,
+        "y": 1340,
+        "wires": [
+            [
+                "4a7d395589773f95"
+            ]
+        ]
+    },
+    {
+        "id": "cf4eadb5486f51b1",
+        "type": "link out",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "",
+        "mode": "return",
+        "links": [],
+        "x": 955,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "3ba46a068e8a81b0",
+        "type": "catch",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 790,
+        "y": 1460,
+        "wires": [
+            [
+                "2ae4c3431b954887"
+            ]
+        ]
+    },
+    {
+        "id": "2ae4c3431b954887",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "error",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "4f60e35817c63e86",
+        "type": "msg-speed",
+        "z": "2567a318.c428a4",
+        "g": "2fb69984b9b040bc",
+        "name": "gqrx msgs",
+        "frequency": "sec",
+        "interval": "1",
+        "estimation": false,
+        "ignore": true,
+        "pauseAtStartup": false,
+        "topicDependent": false,
+        "x": 290,
+        "y": 1420,
         "wires": [
             [],
             []
@@ -1951,12 +2153,12 @@
         "id": "658215a2f21d675d",
         "type": "tcp out",
         "z": "5890b6cb88371fda",
+        "name": "EB500 TCP",
         "host": "192.168.2.5",
         "port": "5555",
         "beserver": "client",
         "base64": false,
         "end": false,
-        "name": "EB500 TCP",
         "x": 990,
         "y": 140,
         "wires": []
@@ -1966,7 +2168,7 @@
         "type": "function",
         "z": "5890b6cb88371fda",
         "name": "EB500 demod/TRX control",
-        "func": "var f = parseInt(msg.payload);\n\nmsg.payload = \"MEM:CONT MEM0, \" + f/1000000 + \" MHz, 0, CW , 0.1 kHz, (@1),1,OFF,ON,OFF,ON\\r\\n\";\nmsg.payload = msg.payload + \"MEM:CONT:LAB MEM0, \\\"TRX\\\"\\r\\n\";\nmsg.payload = msg.payload + \"FREQ:DEM \" + f + \"\\r\\n\";\nreturn msg;\n\n\n\n\n//MEMory:CONTents MEM1, 98.5 MHz, 34, FM ,120 kHz, (@1),1,OFF,ON,OFF,ON",
+        "func": "var f = parseInt(msg.payload);\n\nmsg.payload = \"MEM:CONT MEM0, \" + f/1000000 + \" MHz, 0, CW , 0.1 kHz, (@1),1,OFF,ON,OFF,ON\\r\\n\";\n//msg.payload = msg.payload + \"MEM:CONT:LAB MEM0, \\\"TRX\\\"\\r\\n\";\nmsg.payload = msg.payload + \"FREQ:DEM \" + f + \"\\r\\n\";\nreturn msg;\n\n\n\n\n//MEMory:CONTents MEM1, 98.5 MHz, 34, FM ,120 kHz, (@1),1,OFF,ON,OFF,ON",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2056,8 +2258,8 @@
         "y": 160,
         "wires": [
             [
-                "658215a2f21d675d",
-                "e799a0cdf686aae4"
+                "e799a0cdf686aae4",
+                "658215a2f21d675d"
             ]
         ]
     },
