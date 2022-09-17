@@ -118,8 +118,8 @@
                 ]
             },
             {
-                "x": 620,
-                "y": 280,
+                "x": 540,
+                "y": 380,
                 "wires": [
                     {
                         "id": "11a4a0d0.2b8ecf",
@@ -160,32 +160,6 @@
         "h": 202
     },
     {
-        "id": "a504cb095a9e3597",
-        "type": "group",
-        "z": "2567a318.c428a4",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "56a90595.8e6484",
-            "a6dfc1c6f43d6fdf",
-            "0b00637a58db6d22",
-            "9a67ec499719f61e",
-            "dec7e0a2a9e9d2be",
-            "e16418e3734830c3"
-        ],
-        "x": 34,
-        "y": 1919,
-        "w": 932,
-        "h": 162
-    },
-    {
         "id": "2fb69984b9b040bc",
         "type": "group",
         "z": "2567a318.c428a4",
@@ -210,10 +184,36 @@
             "ba74f7530e91e907",
             "4a7d395589773f95"
         ],
-        "x": 114,
+        "x": 34,
         "y": 1299,
         "w": 972,
         "h": 202
+    },
+    {
+        "id": "a504cb095a9e3597",
+        "type": "group",
+        "z": "2567a318.c428a4",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "56a90595.8e6484",
+            "a6dfc1c6f43d6fdf",
+            "0b00637a58db6d22",
+            "9a67ec499719f61e",
+            "dec7e0a2a9e9d2be",
+            "e16418e3734830c3"
+        ],
+        "x": 34,
+        "y": 1919,
+        "w": 942,
+        "h": 162
     },
     {
         "id": "e914de2a89715c03",
@@ -232,7 +232,7 @@
         "type": "junction",
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
-        "x": 460,
+        "x": 380,
         "y": 1340,
         "wires": [
             [
@@ -246,7 +246,7 @@
         "type": "junction",
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
-        "x": 840,
+        "x": 760,
         "y": 1340,
         "wires": [
             [
@@ -353,7 +353,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 8,
-        "x": 470,
+        "x": 410,
         "y": 140,
         "wires": [
             [
@@ -491,7 +491,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 170,
-        "y": 560,
+        "y": 480,
         "wires": []
     },
     {
@@ -506,7 +506,7 @@
             "763d8174.9f848"
         ],
         "x": 1435,
-        "y": 480,
+        "y": 400,
         "wires": []
     },
     {
@@ -537,32 +537,6 @@
             [
                 "73dde1e8ae390f67",
                 "682b617fb558d8ef"
-            ]
-        ]
-    },
-    {
-        "id": "56a90595.8e6484",
-        "type": "inject",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "poll gqrx \"f \"",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "0.35",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "f ",
-        "payloadType": "str",
-        "x": 160,
-        "y": 2000,
-        "wires": [
-            [
-                "e16418e3734830c3"
             ]
         ]
     },
@@ -687,7 +661,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1510,
-        "y": 520,
+        "y": 440,
         "wires": []
     },
     {
@@ -951,7 +925,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1520,
-        "y": 600,
+        "y": 520,
         "wires": []
     },
     {
@@ -1006,7 +980,7 @@
             "ec544d7221a5e5a4"
         ],
         "x": 1435,
-        "y": 560,
+        "y": 480,
         "wires": []
     },
     {
@@ -1016,7 +990,7 @@
         "name": "handle TS590",
         "env": [],
         "x": 800,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "40e4c795.2be6d8"
@@ -1025,7 +999,9 @@
                 "120caf50.d7d269"
             ],
             [],
-            [],
+            [
+                "1f2657ee3f74b295"
+            ],
             [
                 "98b36d19.e79db"
             ],
@@ -1049,7 +1025,7 @@
         "stream": false,
         "addname": "",
         "x": 310,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "c09101ae.a2db98"
@@ -1081,7 +1057,7 @@
         "repair": false,
         "outputs": 3,
         "x": 530,
-        "y": 500,
+        "y": 420,
         "wires": [
             [],
             [],
@@ -1117,7 +1093,7 @@
             "4c6fcd38.4d3594"
         ],
         "x": 515,
-        "y": 600,
+        "y": 520,
         "wires": []
     },
     {
@@ -1156,7 +1132,7 @@
         "to": "",
         "reg": false,
         "x": 1110,
-        "y": 480,
+        "y": 400,
         "wires": [
             [
                 "fcd8598f.3ae3e8"
@@ -1175,7 +1151,7 @@
         "septopics": true,
         "property": "payload",
         "x": 1330,
-        "y": 440,
+        "y": 360,
         "wires": [
             [
                 "54bc4149.107d4",
@@ -1195,7 +1171,7 @@
         "septopics": true,
         "property": "payload",
         "x": 1330,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "6664f06a.70a65",
@@ -1210,7 +1186,7 @@
         "name": "ts590 in",
         "serial": "170a6b400dc38492",
         "x": 90,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "80206118.6f18c8",
@@ -1306,7 +1282,7 @@
         "to": "",
         "reg": false,
         "x": 1110,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "ea98bef.cf6eac"
@@ -1333,7 +1309,7 @@
         "to": "",
         "reg": false,
         "x": 1120,
-        "y": 520,
+        "y": 440,
         "wires": [
             [
                 "8e2dcb79.acf7f"
@@ -1352,7 +1328,7 @@
         "septopics": true,
         "property": "payload",
         "x": 1330,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "7b9f6f7d.db3038",
@@ -1374,7 +1350,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1530,
-        "y": 680,
+        "y": 600,
         "wires": []
     },
     {
@@ -1387,87 +1363,7 @@
             "00af385a17bd452e"
         ],
         "x": 1435,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "a6dfc1c6f43d6fdf",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "gqrx freq",
-        "func": "var f = parseInt(msg.payload);\n\nif (isNaN(f) || f <= 0) {\n    return;\n}\n\n\nif (f == flow.get(\"gqrx_freq\")) {\n    return;\n}\n\nflow.set(\"gqrx_freq\", f);\nmsg.payload = f;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 2000,
-        "wires": [
-            [
-                "dec7e0a2a9e9d2be",
-                "9a67ec499719f61e",
-                "0b00637a58db6d22"
-            ]
-        ]
-    },
-    {
-        "id": "0b00637a58db6d22",
-        "type": "change",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gqrx_freq",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 850,
-        "y": 2040,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9a67ec499719f61e",
-        "type": "link out",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "",
-        "links": [
-            "6c640c27.c92afc",
-            "b8913ddd.bcf758"
-        ],
-        "x": 775,
-        "y": 1960,
-        "wires": []
-    },
-    {
-        "id": "dec7e0a2a9e9d2be",
-        "type": "debug",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "gqrx freq",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 2000,
+        "y": 560,
         "wires": []
     },
     {
@@ -1476,7 +1372,7 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1486,24 +1382,6 @@
         "x": 830,
         "y": 1800,
         "wires": []
-    },
-    {
-        "id": "e16418e3734830c3",
-        "type": "link call",
-        "z": "2567a318.c428a4",
-        "g": "a504cb095a9e3597",
-        "name": "",
-        "links": [
-            "e1d0222629c0ae1c"
-        ],
-        "timeout": "30",
-        "x": 360,
-        "y": 2000,
-        "wires": [
-            [
-                "a6dfc1c6f43d6fdf"
-            ]
-        ]
     },
     {
         "id": "73dde1e8ae390f67",
@@ -1547,7 +1425,7 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "gqrx freq/mode",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1616,7 +1494,7 @@
         "pauseAtStartup": false,
         "topicDependent": false,
         "x": 190,
-        "y": 600,
+        "y": 520,
         "wires": [
             [],
             []
@@ -1739,8 +1617,9 @@
         "id": "7af348e55b0b0ce8",
         "type": "debug",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "gqrx noisefloor",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1756,6 +1635,7 @@
         "id": "2386edcfd5a7cf89",
         "type": "link call",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "links": [
             "e1d0222629c0ae1c"
@@ -1765,8 +1645,7 @@
         "y": 2160,
         "wires": [
             [
-                "ae370ba288f28bb8",
-                "7af348e55b0b0ce8"
+                "ae370ba288f28bb8"
             ]
         ]
     },
@@ -1774,15 +1653,16 @@
         "id": "297a0353b840715c",
         "type": "inject",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "poll gqrx \"l nf \"",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "0.5",
+        "repeat": "1",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "l nf",
@@ -1799,6 +1679,7 @@
         "id": "ae370ba288f28bb8",
         "type": "function",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "gqrx Noisefloor",
         "func": "var f = parseFloat(msg.payload);\n\nif (isNaN(f)|| f > 0) {\n    return;\n}\n\nmsg.payload = f;\n\nreturn msg;",
         "outputs": 1,
@@ -1810,7 +1691,8 @@
         "y": 2160,
         "wires": [
             [
-                "a5fc2946c7081592"
+                "a5fc2946c7081592",
+                "7af348e55b0b0ce8"
             ]
         ]
     },
@@ -1818,12 +1700,13 @@
         "id": "a5fc2946c7081592",
         "type": "range",
         "z": "2567a318.c428a4",
-        "minin": "-180",
-        "maxin": "-60",
-        "minout": "-20",
-        "maxout": "10",
-        "action": "clamp",
-        "round": false,
+        "d": true,
+        "minin": "-140",
+        "maxin": "-110",
+        "minout": "-5",
+        "maxout": "5",
+        "action": "scale",
+        "round": true,
         "property": "payload",
         "name": "NF mapping",
         "x": 750,
@@ -1848,7 +1731,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
+        "x": 880,
         "y": 1400,
         "wires": []
     },
@@ -1858,8 +1741,10 @@
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
         "name": "gqrx cmd",
-        "links": [],
-        "x": 155,
+        "links": [
+            "77701b240fbdcd59"
+        ],
+        "x": 75,
         "y": 1340,
         "wires": [
             [
@@ -1874,7 +1759,7 @@
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
         "name": "gqrx request",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1882,7 +1767,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 560,
         "y": 1400,
         "wires": []
     },
@@ -1897,10 +1782,10 @@
         "out": "sit",
         "ret": "string",
         "splitc": " ",
-        "newline": "\\n",
+        "newline": "",
         "trim": false,
         "tls": "",
-        "x": 620,
+        "x": 540,
         "y": 1340,
         "wires": [
             [
@@ -1916,7 +1801,7 @@
         "name": "",
         "mode": "return",
         "links": [],
-        "x": 955,
+        "x": 875,
         "y": 1340,
         "wires": []
     },
@@ -1928,7 +1813,7 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 790,
+        "x": 710,
         "y": 1460,
         "wires": [
             [
@@ -1950,7 +1835,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
+        "x": 860,
         "y": 1460,
         "wires": []
     },
@@ -1966,10 +1851,186 @@
         "ignore": true,
         "pauseAtStartup": false,
         "topicDependent": false,
-        "x": 290,
+        "x": 210,
         "y": 1420,
         "wires": [
             [],
+            []
+        ]
+    },
+    {
+        "id": "56a90595.8e6484",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "poll gqrx \"f \"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.35",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "f ",
+        "payloadType": "str",
+        "x": 160,
+        "y": 2000,
+        "wires": [
+            [
+                "e16418e3734830c3"
+            ]
+        ]
+    },
+    {
+        "id": "a6dfc1c6f43d6fdf",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "gqrx freq",
+        "func": "var f = parseInt(msg.payload);\n\nif (isNaN(f) || f <= 0) {\n    return;\n}\n\nif (f == flow.get(\"gqrx_freq\")) {\n    return;\n}\n\n//flow.set(\"gqrx_freq\", f);\nmsg.payload = f;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 2000,
+        "wires": [
+            [
+                "dec7e0a2a9e9d2be",
+                "9a67ec499719f61e",
+                "0b00637a58db6d22"
+            ]
+        ]
+    },
+    {
+        "id": "0b00637a58db6d22",
+        "type": "change",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gqrx_freq",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 2040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a67ec499719f61e",
+        "type": "link out",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "",
+        "links": [
+            "6c640c27.c92afc",
+            "b8913ddd.bcf758"
+        ],
+        "x": 775,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "dec7e0a2a9e9d2be",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "gqrx freq",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "e16418e3734830c3",
+        "type": "link call",
+        "z": "2567a318.c428a4",
+        "g": "a504cb095a9e3597",
+        "name": "",
+        "links": [
+            "e1d0222629c0ae1c"
+        ],
+        "timeout": "30",
+        "x": 360,
+        "y": 2000,
+        "wires": [
+            [
+                "a6dfc1c6f43d6fdf"
+            ]
+        ]
+    },
+    {
+        "id": "1f2657ee3f74b295",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "on/off",
+        "func": "if (msg.payload == 0)\n    msg.payload = \"U DSP 0\";\nelse if (msg.payload == 1)\n    msg.payload = \"U DSP 1\";\nelse\n    return;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 540,
+        "wires": [
+            [
+                "5c40c9adb4eb9c2d",
+                "2071e4724ee97969"
+            ]
+        ]
+    },
+    {
+        "id": "2071e4724ee97969",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5c40c9adb4eb9c2d",
+        "type": "link call",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "links": [
+            "e1d0222629c0ae1c"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 1200,
+        "y": 580,
+        "wires": [
             []
         ]
     },
