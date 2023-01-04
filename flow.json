@@ -16,14 +16,6 @@
         "env": []
     },
     {
-        "id": "412a91c359181f25",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "5890b6cb88371fda",
         "type": "tab",
         "label": "handle EB500",
@@ -108,8 +100,8 @@
                 ]
             },
             {
-                "x": 620,
-                "y": 220,
+                "x": 580,
+                "y": 320,
                 "wires": [
                     {
                         "id": "11a4a0d0.2b8ecf",
@@ -212,7 +204,7 @@
         ],
         "x": 34,
         "y": 1919,
-        "w": 942,
+        "w": 932,
         "h": 162
     },
     {
@@ -256,31 +248,26 @@
         ]
     },
     {
+        "id": "a66dbc06195f1b07",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "80206118.6f18c8",
+                "15fc324b.d35cf6",
+                "26cfe699222384a2"
+            ]
+        ]
+    },
+    {
         "id": "c7c1fa79768ee5b3",
         "type": "websocket-client",
         "path": "ws://127.0.01:50001",
         "tls": "",
         "wholemsg": "false",
         "hb": "0"
-    },
-    {
-        "id": "170a6b400dc38492",
-        "type": "serial-port",
-        "serialport": "/dev/tty.usbserial-142210",
-        "serialbaud": "115200",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "high",
-        "dsr": "none",
-        "newline": ";",
-        "bin": "false",
-        "out": "char",
-        "addchar": "",
-        "responsetimeout": "10000"
     },
     {
         "id": "07054158deaeee18",
@@ -295,6 +282,25 @@
         "influxdbVersion": "1.x",
         "url": "http://localhost:8086",
         "rejectUnauthorized": true
+    },
+    {
+        "id": "25d9cac5d030f9f8",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbserial-141210",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "high",
+        "cts": "high",
+        "dsr": "none",
+        "newline": ";",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "50"
     },
     {
         "id": "11a4a0d0.2b8ecf",
@@ -490,7 +496,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 170,
+        "x": 280,
         "y": 480,
         "wires": []
     },
@@ -593,7 +599,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -680,7 +686,7 @@
         "wires": [
             [
                 "b1a26db2.974628",
-                "2252f2ad.3c3e5e"
+                "585b8d084e8b88bc"
             ]
         ]
     },
@@ -700,8 +706,8 @@
         "z": "2567a318.c428a4",
         "name": "handle TS590",
         "info": "TS590 is set to AI4; so it reports all changes without polling\n\n",
-        "x": 130,
-        "y": 440,
+        "x": 70,
+        "y": 380,
         "wires": []
     },
     {
@@ -715,8 +721,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1110,
-        "y": 1140,
+        "x": 710,
+        "y": 620,
         "wires": []
     },
     {
@@ -729,8 +735,8 @@
         "beserver": "reply",
         "base64": false,
         "end": false,
-        "x": 1110,
-        "y": 1080,
+        "x": 710,
+        "y": 560,
         "wires": []
     },
     {
@@ -792,8 +798,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 920,
-        "y": 1080,
+        "x": 520,
+        "y": 560,
         "wires": [
             [
                 "b5803ae8.706908",
@@ -916,7 +922,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 mode change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1063,7 +1069,7 @@
             [],
             [
                 "56e74b3f.2d327c",
-                "f7355814.9b1038"
+                "a8129d03.778888"
             ]
         ]
     },
@@ -1085,34 +1091,6 @@
         "wires": []
     },
     {
-        "id": "f7355814.9b1038",
-        "type": "link out",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "links": [
-            "4c6fcd38.4d3594"
-        ],
-        "x": 515,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "4c6fcd38.4d3594",
-        "type": "link in",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "links": [
-            "f7355814.9b1038"
-        ],
-        "x": 815,
-        "y": 1080,
-        "wires": [
-            [
-                "a8129d03.778888"
-            ]
-        ]
-    },
-    {
         "id": "40e4c795.2be6d8",
         "type": "change",
         "z": "2567a318.c428a4",
@@ -1132,7 +1110,7 @@
         "to": "",
         "reg": false,
         "x": 1110,
-        "y": 400,
+        "y": 360,
         "wires": [
             [
                 "fcd8598f.3ae3e8"
@@ -1151,7 +1129,7 @@
         "septopics": true,
         "property": "payload",
         "x": 1330,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "54bc4149.107d4",
@@ -1178,32 +1156,6 @@
                 "b91c5712.c10e98"
             ]
         ]
-    },
-    {
-        "id": "bf37bcea.602208",
-        "type": "serial in",
-        "z": "2567a318.c428a4",
-        "name": "ts590 in",
-        "serial": "170a6b400dc38492",
-        "x": 90,
-        "y": 420,
-        "wires": [
-            [
-                "80206118.6f18c8",
-                "15fc324b.d35cf6",
-                "26cfe699222384a2"
-            ]
-        ]
-    },
-    {
-        "id": "2252f2ad.3c3e5e",
-        "type": "serial out",
-        "z": "2567a318.c428a4",
-        "name": "ts590 out",
-        "serial": "170a6b400dc38492",
-        "x": 1130,
-        "y": 860,
-        "wires": []
     },
     {
         "id": "fd3c0c04.5770c8",
@@ -1240,7 +1192,8 @@
         "z": "2567a318.c428a4",
         "name": "",
         "links": [
-            "2bfd895.2bb2b76"
+            "2bfd895.2bb2b76",
+            "073f8778fab8d796"
         ],
         "x": 775,
         "y": 820,
@@ -1341,7 +1294,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 bandwidth change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1372,7 +1325,7 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1493,8 +1446,8 @@
         "ignore": true,
         "pauseAtStartup": false,
         "topicDependent": false,
-        "x": 190,
-        "y": 520,
+        "x": 290,
+        "y": 540,
         "wires": [
             [],
             []
@@ -1660,7 +1613,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "1",
+        "repeat": "3",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -1701,19 +1654,20 @@
         "type": "range",
         "z": "2567a318.c428a4",
         "d": true,
-        "minin": "-140",
-        "maxin": "-110",
-        "minout": "-5",
-        "maxout": "5",
-        "action": "scale",
+        "minin": "-150",
+        "maxin": "-90",
+        "minout": "60",
+        "maxout": "0",
+        "action": "clamp",
         "round": true,
         "property": "payload",
         "name": "NF mapping",
-        "x": 750,
-        "y": 2160,
+        "x": 770,
+        "y": 2161,
         "wires": [
             [
-                "7af348e55b0b0ce8"
+                "e373c2e7d1cbe89d",
+                "c6d3e01e9d9317b0"
             ]
         ]
     },
@@ -1759,7 +1713,7 @@
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
         "name": "gqrx request",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1798,7 +1752,7 @@
         "type": "link out",
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
-        "name": "",
+        "name": "gqrx cmd",
         "mode": "return",
         "links": [],
         "x": 875,
@@ -2035,6 +1989,79 @@
         ]
     },
     {
+        "id": "c6d3e01e9d9317b0",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "e373c2e7d1cbe89d",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "function 1",
+        "func": "msg.payload = \"BSC0\" + msg.payload +\";\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 2220,
+        "wires": [
+            [
+                "073f8778fab8d796"
+            ]
+        ]
+    },
+    {
+        "id": "073f8778fab8d796",
+        "type": "link out",
+        "z": "2567a318.c428a4",
+        "d": true,
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "3669651c.1a03da"
+        ],
+        "x": 1115,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "797c2464b050bc15",
+        "type": "serial in",
+        "z": "2567a318.c428a4",
+        "name": "TS-890",
+        "serial": "25d9cac5d030f9f8",
+        "x": 70,
+        "y": 440,
+        "wires": [
+            [
+                "a66dbc06195f1b07"
+            ]
+        ]
+    },
+    {
+        "id": "585b8d084e8b88bc",
+        "type": "serial out",
+        "z": "2567a318.c428a4",
+        "name": "TS-890",
+        "serial": "25d9cac5d030f9f8",
+        "x": 1140,
+        "y": 860,
+        "wires": []
+    },
+    {
         "id": "ce9b801a20ac0ac0",
         "type": "websocket in",
         "z": "8a2421553543bf8c",
@@ -2215,11 +2242,12 @@
         "type": "tcp out",
         "z": "5890b6cb88371fda",
         "name": "EB500 TCP",
-        "host": "192.168.2.5",
+        "host": "192.168.1.58",
         "port": "5555",
         "beserver": "client",
         "base64": false,
         "end": false,
+        "tls": "",
         "x": 990,
         "y": 140,
         "wires": []
@@ -2229,7 +2257,7 @@
         "type": "function",
         "z": "5890b6cb88371fda",
         "name": "EB500 demod/TRX control",
-        "func": "var f = parseInt(msg.payload);\n\nmsg.payload = \"MEM:CONT MEM0, \" + f/1000000 + \" MHz, 0, CW , 0.1 kHz, (@1),1,OFF,ON,OFF,ON\\r\\n\";\n//msg.payload = msg.payload + \"MEM:CONT:LAB MEM0, \\\"TRX\\\"\\r\\n\";\nmsg.payload = msg.payload + \"FREQ:DEM \" + f + \"\\r\\n\";\nreturn msg;\n\n\n\n\n//MEMory:CONTents MEM1, 98.5 MHz, 34, FM ,120 kHz, (@1),1,OFF,ON,OFF,ON",
+        "func": "var f = parseInt(msg.payload);\n\n// control a memory\nmsg.payload = \"MEM:CONT MEM0, \" + f/1000000 + \" MHz, 0, CW , 0.1 kHz, (@1),1,OFF,ON,OFF,ON\\r\\n\";\nmsg.payload = msg.payload + \"MEM:CONT:LAB MEM0, \\\"TRX\\\"\\r\\n\";\n\n// control the demodulator\n//msg.payload = msg.payload + \"FREQ:DEM \" + f + \"\\r\\n\";\nreturn msg;\n\n\n\n\n//MEMory:CONTents MEM1, 98.5 MHz, 34, FM ,120 kHz, (@1),1,OFF,ON,OFF,ON",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2248,7 +2276,7 @@
         "type": "debug",
         "z": "5890b6cb88371fda",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
