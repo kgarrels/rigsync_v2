@@ -1,3 +1,6 @@
 {
-    "07054158deaeee18": {}
+    "07054158deaeee18": {
+        "username": "mqttuser",
+        "password": "krabbe"
+    }
 }
