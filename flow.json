@@ -262,6 +262,45 @@
         ]
     },
     {
+        "id": "91e37d1308a2e506",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 1440,
+        "y": 360,
+        "wires": [
+            [
+                "54bc4149.107d4",
+                "bba28a01.d07"
+            ]
+        ]
+    },
+    {
+        "id": "afb3bd33d5d953f2",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 1440,
+        "y": 440,
+        "wires": [
+            [
+                "6664f06a.70a65",
+                "b91c5712.c10e98"
+            ]
+        ]
+    },
+    {
+        "id": "8fb64d52ec14125e",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 1440,
+        "y": 520,
+        "wires": [
+            [
+                "12906b84.fb58bc",
+                "7b9f6f7d.db3038"
+            ]
+        ]
+    },
+    {
         "id": "c7c1fa79768ee5b3",
         "type": "websocket-client",
         "path": "ws://127.0.01:50001",
@@ -511,8 +550,8 @@
             "0abf31a30a90f942",
             "763d8174.9f848"
         ],
-        "x": 1435,
-        "y": 400,
+        "x": 1555,
+        "y": 360,
         "wires": []
     },
     {
@@ -531,8 +570,9 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "set GQRX frequency",
-        "func": "var f = parseInt(msg.payload);\n\nif (f == flow.get(\"gqrx_freq\")){\n    return ;\n}\n\n//set default mode when freq changes\n//var m = \"USB\";\n//if (f<10000000) m = \"LSB\";\n//msg.payload = \"F \" + f + \"\\n\" + \"M \" + m + \"\\n\";\n\nmsg.payload = \"F \" + f;\nflow.set(\"gqrx_freq\", f);\n\nreturn msg;",
+        "func": "var f = parseInt(msg.payload);\n\n//if (f == flow.get(\"gqrx_freq\")){\n//    return ;\n//}\n\n//set default mode when freq changes\n//var m = \"USB\";\n//if (f<10000000) m = \"LSB\";\n//msg.payload = \"F \" + f + \"\\n\" + \"M \" + m + \"\\n\";\n\nmsg.payload = \"F \" + f +\"\\n\";\nflow.set(\"gqrx_freq\", f);\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -581,7 +621,7 @@
         "type": "function",
         "z": "2567a318.c428a4",
         "name": "build ts590 FA cmd",
-        "func": "\nif (msg.payload == flow.get(\"ts590_freq\")){\n    return ;\n}\n\nflow.set(\"ts590_freq\", f);\nvar f = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nvar m;\n\nif (parseInt(f)>10000000) m = 2\nelse m=1\n\nmsg.payload = \"FA\" + f + \";\" + \"OM0\" + m + \";\";\nreturn msg;",
+        "func": "\nif (msg.payload == flow.get(\"ts590_freq\")){\n    return ;\n}\n\nflow.set(\"ts590_freq\", f);\nvar f = \"00000000000\" + (msg.payload) +\"0\";\nf = f.substr(-12);\nf = f.slice(0, -1);\n\nvar m, mode;\nif (parseInt(f) > 10000000) m=\"2\"\nelse m=\"1\";\n\nif (!(m === flow.get(\"ts590_mode\"))) mode=\"OM0\"+m+\";\"\nelse mode=\"\";\n\nmsg.payload = mode+ \"FA\" + f + \";\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -600,7 +640,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -667,8 +707,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1510,
-        "y": 440,
+        "x": 1630,
+        "y": 400,
         "wires": []
     },
     {
@@ -931,8 +971,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1520,
-        "y": 520,
+        "x": 1640,
+        "y": 480,
         "wires": []
     },
     {
@@ -941,8 +981,9 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "set GQRX mode",
-        "func": "var mode=\"\", bw=0;\nvar m = flow.get(\"ts590_mode\");\nswitch (m) {\n    case \"C\":\n    case \"1\": mode = \"LSB\"; \n            break;\n    case \"D\":\n        case \"2\": mode = \"USB\";\n            break;\n    case \"7\":\n    case \"3\": mode = \"CW\";\n            break;\n    case \"4\": mode = \"FM\";\n            break;\n    case \"5\": mode = \"AM\";\n            break;\n    default: mode = \"OFF\"\n}\n\n/* ts-590 \nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n    case 0: bw = 1200; \n            break;\n    case 1: bw = 1200; \n            break;\n    case 2: bw = 1400; \n            break;\n    case 3: bw = 1600; \n            break;\n    case 4: bw = 1800; \n            break;\n    case 5: bw = 2000; \n            break;\n    case 6: bw = 2200; \n            break;\n    case 7: bw = 2400; \n            break;\n    case 8: bw = 2600; \n            break;\n    case 9: bw = 2800; \n            break;\n    case 10: bw = 3000; \n            break;\n    case 11: bw = 3400; \n            break;\n    case 12: bw = 4000; \n            break;\n    case 13: bw = 5000; \n            break;\n    default: bw = 2800\n}\n*/\n\n/* ts-890 */\nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n        case 0: bw = 600;\n                break;\n        case 1: bw = 700;\n                break;\n        case 2: bw = 800;\n                break;\n        case 3: bw = 900;\n                break;\n        case 4: bw = 1000;\n                break;\n        case 5: bw = 1100;\n                break;\n        case 6: bw = 1200;\n                break;\n        case 7: bw = 1300;\n                break;\n        case 8: bw = 1400;\n                break;\n        case 9: bw = 1500;\n                break;\n        case 10: bw = 1600;\n                break;\n        case 11: bw = 1700;\n                break;\n        case 12: bw = 1800;\n                break;\n        case 13: bw = 19000;\n                break;\n        case 14: bw = 2000;\n                break;\n        case 15: bw = 2100;\n                break;\n        case 16: bw = 2200;\n                break;\n        case 17: bw = 2300;\n                break;\n        case 18: bw = 2400;\n                break;\n        case 19: bw = 2500;\n                break;\n        case 20: bw = 2600;\n                break;\n        case 21: bw = 2700;\n                break;\n        case 22: bw = 2800;\n                break;\n        case 23: bw = 2900;\n                break;\n        case 24: bw = 3000;\n                break;\n        case 25: bw = 3400;\n                break;\n        case 26: bw = 4000;\n                break;\n        case 27: bw = 5000;\n                break;\n        default: bw = 2800\n}\n\n\nmsg.payload = \"M \" + mode + \" \" + bw;\n\nreturn msg;",
+        "func": "var mode=\"\", bw=0;\nvar m = flow.get(\"ts590_mode\");\nswitch (m) {\n    case \"C\":\n    case \"1\": mode = \"LSB\"; \n            break;\n    case \"D\":\n        case \"2\": mode = \"USB\";\n            break;\n    case \"7\":\n    case \"3\": mode = \"CW\";\n            break;\n    case \"4\": mode = \"FM\";\n            break;\n    case \"5\": mode = \"AM\";\n            break;\n    default: mode = \"OFF\"\n}\n\n/* ts-590 \nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n    case 0: bw = 1200; \n            break;\n    case 1: bw = 1200; \n            break;\n    case 2: bw = 1400; \n            break;\n    case 3: bw = 1600; \n            break;\n    case 4: bw = 1800; \n            break;\n    case 5: bw = 2000; \n            break;\n    case 6: bw = 2200; \n            break;\n    case 7: bw = 2400; \n            break;\n    case 8: bw = 2600; \n            break;\n    case 9: bw = 2800; \n            break;\n    case 10: bw = 3000; \n            break;\n    case 11: bw = 3400; \n            break;\n    case 12: bw = 4000; \n            break;\n    case 13: bw = 5000; \n            break;\n    default: bw = 2800\n}\n*/\n\n/* ts-890 */\nvar b = flow.get(\"ts590_bw\")\nswitch (b) {\n        case 0: bw = 600;\n                break;\n        case 1: bw = 700;\n                break;\n        case 2: bw = 800;\n                break;\n        case 3: bw = 900;\n                break;\n        case 4: bw = 1000;\n                break;\n        case 5: bw = 1100;\n                break;\n        case 6: bw = 1200;\n                break;\n        case 7: bw = 1300;\n                break;\n        case 8: bw = 1400;\n                break;\n        case 9: bw = 1500;\n                break;\n        case 10: bw = 1600;\n                break;\n        case 11: bw = 1700;\n                break;\n        case 12: bw = 1800;\n                break;\n        case 13: bw = 19000;\n                break;\n        case 14: bw = 2000;\n                break;\n        case 15: bw = 2100;\n                break;\n        case 16: bw = 2200;\n                break;\n        case 17: bw = 2300;\n                break;\n        case 18: bw = 2400;\n                break;\n        case 19: bw = 2500;\n                break;\n        case 20: bw = 2600;\n                break;\n        case 21: bw = 2700;\n                break;\n        case 22: bw = 2800;\n                break;\n        case 23: bw = 2900;\n                break;\n        case 24: bw = 3000;\n                break;\n        case 25: bw = 3400;\n                break;\n        case 26: bw = 4000;\n                break;\n        case 27: bw = 5000;\n                break;\n        default: bw = 2800\n}\n\n\nmsg.payload = \"M \" + mode + \" \" + bw + \"\\n\";\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -986,8 +1027,8 @@
             "de32c452.d911d",
             "ec544d7221a5e5a4"
         ],
-        "x": 1435,
-        "y": 480,
+        "x": 1555,
+        "y": 440,
         "wires": []
     },
     {
@@ -1114,49 +1155,7 @@
         "y": 360,
         "wires": [
             [
-                "fcd8598f.3ae3e8"
-            ]
-        ]
-    },
-    {
-        "id": "fcd8598f.3ae3e8",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1330,
-        "y": 420,
-        "wires": [
-            [
-                "54bc4149.107d4",
-                "bba28a01.d07"
-            ]
-        ]
-    },
-    {
-        "id": "8e2dcb79.acf7f",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1330,
-        "y": 480,
-        "wires": [
-            [
-                "6664f06a.70a65",
-                "b91c5712.c10e98"
+                "91e37d1308a2e506"
             ]
         ]
     },
@@ -1241,7 +1240,7 @@
         "y": 480,
         "wires": [
             [
-                "ea98bef.cf6eac"
+                "8fb64d52ec14125e"
             ]
         ]
     },
@@ -1268,28 +1267,7 @@
         "y": 440,
         "wires": [
             [
-                "8e2dcb79.acf7f"
-            ]
-        ]
-    },
-    {
-        "id": "ea98bef.cf6eac",
-        "type": "rbe",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "func": "rbei",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1330,
-        "y": 560,
-        "wires": [
-            [
-                "7b9f6f7d.db3038",
-                "12906b84.fb58bc"
+                "afb3bd33d5d953f2"
             ]
         ]
     },
@@ -1298,7 +1276,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 bandwidth change",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1306,7 +1284,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1530,
+        "x": 1650,
         "y": 600,
         "wires": []
     },
@@ -1319,7 +1297,7 @@
             "de32c452.d911d",
             "00af385a17bd452e"
         ],
-        "x": 1435,
+        "x": 1555,
         "y": 560,
         "wires": []
     },
@@ -1543,7 +1521,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "RX;",
+        "payload": "MU0;",
         "payloadType": "str",
         "x": 170,
         "y": 300,
@@ -1994,7 +1972,7 @@
         "z": "2567a318.c428a4",
         "g": "f4398ab3dec8e0a3",
         "name": "gqrx cmd",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2002,7 +1980,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 560,
         "y": 1800,
         "wires": []
     },
