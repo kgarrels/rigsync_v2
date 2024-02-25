@@ -301,6 +301,18 @@
         ]
     },
     {
+        "id": "caa38d283e97e854",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 1240,
+        "y": 620,
+        "wires": [
+            [
+                "45c7d3158dc1da8a"
+            ]
+        ]
+    },
+    {
         "id": "c7c1fa79768ee5b3",
         "type": "websocket-client",
         "path": "ws://127.0.01:50001",
@@ -640,7 +652,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "ts590 cmd",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -807,7 +819,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "RUMLog TCP in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1048,7 +1060,7 @@
             ],
             [],
             [
-                "1f2657ee3f74b295"
+                "caa38d283e97e854"
             ],
             [
                 "98b36d19.e79db"
@@ -1679,7 +1691,7 @@
         "z": "2567a318.c428a4",
         "g": "2fb69984b9b040bc",
         "name": "gqrx request",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1846,18 +1858,20 @@
         "id": "1f2657ee3f74b295",
         "type": "function",
         "z": "2567a318.c428a4",
-        "name": "on/off",
-        "func": "if (msg.payload == 0)\n    msg.payload = \"U DSP 0\";\nelse if (msg.payload == 1)\n    msg.payload = \"U DSP 1\";\nelse\n    return;\n\nreturn msg;",
+        "name": "off",
+        "func": "msg.payload = \"Q\\n\";\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1030,
-        "y": 540,
+        "x": 1690,
+        "y": 680,
         "wires": [
             [
                 "5c40c9adb4eb9c2d",
+                "61bd2eaec7b5c19a",
                 "2071e4724ee97969"
             ]
         ]
@@ -1866,16 +1880,17 @@
         "id": "2071e4724ee97969",
         "type": "debug",
         "z": "2567a318.c428a4",
-        "name": "debug 1",
+        "name": "off",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1200,
-        "y": 620,
+        "x": 2030,
+        "y": 680,
         "wires": []
     },
     {
@@ -1888,8 +1903,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 1200,
-        "y": 580,
+        "x": 1840,
+        "y": 680,
         "wires": [
             []
         ]
@@ -2093,6 +2108,211 @@
         "wires": [
             [
                 "8fb64d52ec14125e"
+            ]
+        ]
+    },
+    {
+        "id": "45c7d3158dc1da8a",
+        "type": "switch",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1490,
+        "y": 760,
+        "wires": [
+            [
+                "1f2657ee3f74b295"
+            ],
+            [
+                "5c4cb8be82188501"
+            ]
+        ]
+    },
+    {
+        "id": "5c4cb8be82188501",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "on",
+        "func": "msg.command = \"\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1690,
+        "y": 860,
+        "wires": [
+            [
+                "bc87584e73cbe0e2",
+                "3a0321e391a37951"
+            ]
+        ]
+    },
+    {
+        "id": "3278e86a10bc40b6",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "on",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2070,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "bc87584e73cbe0e2",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/open",
+        "addpay": "",
+        "append": "/Users/kai/gqrx/Gqrx.app",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1860,
+        "y": 840,
+        "wires": [
+            [
+                "3278e86a10bc40b6"
+            ],
+            [
+                "3278e86a10bc40b6"
+            ],
+            [
+                "3278e86a10bc40b6"
+            ]
+        ]
+    },
+    {
+        "id": "3a0321e391a37951",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/open",
+        "addpay": "",
+        "append": "-b com.rogueamoeba.audiohijack /Users/kai/declick.ahcommand",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1860,
+        "y": 900,
+        "wires": [
+            [
+                "3278e86a10bc40b6"
+            ],
+            [
+                "3278e86a10bc40b6"
+            ],
+            [
+                "3278e86a10bc40b6"
+            ]
+        ]
+    },
+    {
+        "id": "61bd2eaec7b5c19a",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/pkill",
+        "addpay": "",
+        "append": "\"Audio Hijack\"",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1850,
+        "y": 740,
+        "wires": [
+            [
+                "2071e4724ee97969"
+            ],
+            [
+                "2071e4724ee97969"
+            ],
+            [
+                "2071e4724ee97969"
+            ]
+        ]
+    },
+    {
+        "id": "76c2fd1a69fdb56f",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1520,
+        "y": 680,
+        "wires": [
+            [
+                "1f2657ee3f74b295"
+            ]
+        ]
+    },
+    {
+        "id": "9f2ebe55c9f0feac",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1520,
+        "y": 860,
+        "wires": [
+            [
+                "5c4cb8be82188501"
             ]
         ]
     },
