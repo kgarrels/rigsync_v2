@@ -1858,6 +1858,7 @@
         "id": "1f2657ee3f74b295",
         "type": "function",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "off",
         "func": "msg.payload = \"Q\\n\";\n\nreturn msg;",
         "outputs": 1,
@@ -1880,6 +1881,7 @@
         "id": "2071e4724ee97969",
         "type": "debug",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "off",
         "active": true,
         "tosidebar": true,
@@ -1897,6 +1899,7 @@
         "id": "5c40c9adb4eb9c2d",
         "type": "link call",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "links": [
             "e1d0222629c0ae1c"
@@ -2115,6 +2118,7 @@
         "id": "45c7d3158dc1da8a",
         "type": "switch",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -2146,6 +2150,7 @@
         "id": "5c4cb8be82188501",
         "type": "function",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "on",
         "func": "msg.command = \"\";\n\nreturn msg;",
         "outputs": 1,
@@ -2167,6 +2172,7 @@
         "id": "3278e86a10bc40b6",
         "type": "debug",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "on",
         "active": true,
         "tosidebar": true,
@@ -2184,6 +2190,7 @@
         "id": "bc87584e73cbe0e2",
         "type": "exec",
         "z": "2567a318.c428a4",
+        "d": true,
         "command": "/usr/bin/open",
         "addpay": "",
         "append": "/Users/kai/gqrx/Gqrx.app",
@@ -2210,6 +2217,7 @@
         "id": "3a0321e391a37951",
         "type": "exec",
         "z": "2567a318.c428a4",
+        "d": true,
         "command": "/usr/bin/open",
         "addpay": "",
         "append": "-b com.rogueamoeba.audiohijack /Users/kai/declick.ahcommand",
@@ -2236,6 +2244,7 @@
         "id": "61bd2eaec7b5c19a",
         "type": "exec",
         "z": "2567a318.c428a4",
+        "d": true,
         "command": "/usr/bin/pkill",
         "addpay": "",
         "append": "\"Audio Hijack\"",
@@ -2262,6 +2271,7 @@
         "id": "76c2fd1a69fdb56f",
         "type": "inject",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -2291,6 +2301,7 @@
         "id": "9f2ebe55c9f0feac",
         "type": "inject",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "props": [
             {
