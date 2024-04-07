@@ -281,8 +281,9 @@
         "id": "de03e5f21d4a8dae",
         "type": "junction",
         "z": "2567a318.c428a4",
-        "x": 380,
-        "y": 400,
+        "d": true,
+        "x": 340,
+        "y": 540,
         "wires": [
             [
                 "d1454989cc268c25",
@@ -311,6 +312,44 @@
         "influxdbVersion": "1.x",
         "url": "http://localhost:8086",
         "rejectUnauthorized": true
+    },
+    {
+        "id": "4631e15e8bce02ac",
+        "type": "serial-port",
+        "serialport": "/dev/tty.SLAB_USBtoUART",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": ";",
+        "bin": "false",
+        "out": "char",
+        "addchar": ";",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "fb049617e649a5b6",
+        "type": "serial-port",
+        "serialport": "/dev/tty.SLAB_USBtoUART1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": ";",
+        "bin": "false",
+        "out": "char",
+        "addchar": ";",
+        "responsetimeout": "10000"
     },
     {
         "id": "11a4a0d0.2b8ecf",
@@ -920,10 +959,10 @@
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "3",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": "1",
         "topic": "",
         "payload": "AI4;SH0;FA;OM0;",
         "payloadType": "str",
@@ -979,8 +1018,8 @@
         "z": "2567a318.c428a4",
         "name": "handle TS590",
         "info": "TS590 is set to AI4; so it reports all changes without polling\n\n",
-        "x": 70,
-        "y": 700,
+        "x": 110,
+        "y": 380,
         "wires": []
     },
     {
@@ -1483,7 +1522,7 @@
         "type": "debug",
         "z": "2567a318.c428a4",
         "name": "TS590 bandwidth change",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1674,7 +1713,7 @@
         "z": "2567a318.c428a4",
         "g": "8b02b8a4043283bf",
         "name": "gqrx response",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1692,7 +1731,7 @@
         "z": "2567a318.c428a4",
         "g": "8b02b8a4043283bf",
         "name": "gqrx request",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1749,11 +1788,10 @@
         "id": "797c2464b050bc15",
         "type": "serial in",
         "z": "2567a318.c428a4",
-        "d": true,
         "name": "TS-890",
-        "serial": "",
+        "serial": "4631e15e8bce02ac",
         "x": 70,
-        "y": 800,
+        "y": 780,
         "wires": [
             [
                 "a66dbc06195f1b07"
@@ -1764,9 +1802,8 @@
         "id": "585b8d084e8b88bc",
         "type": "serial out",
         "z": "2567a318.c428a4",
-        "d": true,
         "name": "TS-890",
-        "serial": "",
+        "serial": "4631e15e8bce02ac",
         "x": 1000,
         "y": 1260,
         "wires": []
@@ -2134,21 +2171,22 @@
         "id": "3acaa7991148f7b0",
         "type": "inject",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "8",
+        "repeat": "5",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "##CN;##ID002021111;",
+        "payload": "##CN;##ID102021111;",
         "payloadType": "str",
-        "x": 230,
-        "y": 400,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "de03e5f21d4a8dae"
@@ -2159,6 +2197,7 @@
         "id": "d1454989cc268c25",
         "type": "tcp request",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "TS-890 LAN",
         "server": "192.168.2.5",
         "port": "60000",
@@ -2168,8 +2207,8 @@
         "newline": ";",
         "trim": true,
         "tls": "",
-        "x": 490,
-        "y": 400,
+        "x": 450,
+        "y": 540,
         "wires": [
             [
                 "89a7537160749be2",
@@ -2181,6 +2220,7 @@
         "id": "89a7537160749be2",
         "type": "debug",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "debug 2",
         "active": false,
         "tosidebar": true,
@@ -2189,14 +2229,15 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 400,
+        "x": 640,
+        "y": 540,
         "wires": []
     },
     {
         "id": "c47d5220f06ea983",
         "type": "debug",
         "z": "2567a318.c428a4",
+        "d": true,
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -2205,8 +2246,38 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
+        "x": 440,
         "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5fe1b4f0f9a5bb89",
+        "type": "serial in",
+        "z": "2567a318.c428a4",
+        "name": "TS-890-1",
+        "serial": "fb049617e649a5b6",
+        "x": 80,
+        "y": 960,
+        "wires": [
+            [
+                "4a6026725f4b0465"
+            ]
+        ]
+    },
+    {
+        "id": "4a6026725f4b0465",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 960,
         "wires": []
     },
     {
