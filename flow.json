@@ -357,6 +357,18 @@
         ]
     },
     {
+        "id": "300aa8812bebfbae",
+        "type": "junction",
+        "z": "2567a318.c428a4",
+        "x": 1040,
+        "y": 1220,
+        "wires": [
+            [
+                "228b0a4c646b59a4"
+            ]
+        ]
+    },
+    {
         "id": "c7c1fa79768ee5b3",
         "type": "websocket-client",
         "path": "ws://127.0.01:50001",
@@ -388,8 +400,8 @@
         "stopbits": "1",
         "waitfor": "",
         "dtr": "none",
-        "rts": "none",
-        "cts": "none",
+        "rts": "high",
+        "cts": "high",
         "dsr": "none",
         "newline": ";",
         "bin": "false",
@@ -1347,7 +1359,7 @@
             ],
             [],
             [
-                "9432bd6e5a2ec0d8"
+                "300aa8812bebfbae"
             ],
             [
                 "98b36d19.e79db"
@@ -2078,58 +2090,14 @@
         "g": "8b02b8a4043283bf",
         "name": "gqrx",
         "links": [
-            "85eb70ce8b25090c"
+            "85eb70ce8b25090c",
+            "5ff9d193862b77aa"
         ],
         "x": 255,
         "y": 2040,
         "wires": [
             [
                 "ba74f7530e91e907"
-            ]
-        ]
-    },
-    {
-        "id": "1f635a7efc788797",
-        "type": "function",
-        "z": "2567a318.c428a4",
-        "name": "power off",
-        "func": "msg.payload = \"Q\\n\"\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 1220,
-        "wires": [
-            [
-                "85eb70ce8b25090c"
-            ]
-        ]
-    },
-    {
-        "id": "9432bd6e5a2ec0d8",
-        "type": "switch",
-        "z": "2567a318.c428a4",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 770,
-        "y": 1220,
-        "wires": [
-            [
-                "1f635a7efc788797"
             ]
         ]
     },
@@ -2402,6 +2370,263 @@
                 "a66dbc06195f1b07"
             ]
         ]
+    },
+    {
+        "id": "b82e468ee78f1898",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "off",
+        "func": "msg.payload = \"Q\\n\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 1340,
+        "wires": [
+            [
+                "3613496082781fcc",
+                "53f9a5dc9fe2a28b",
+                "5ff9d193862b77aa"
+            ]
+        ]
+    },
+    {
+        "id": "53f9a5dc9fe2a28b",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "off",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "228b0a4c646b59a4",
+        "type": "switch",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1190,
+        "y": 1420,
+        "wires": [
+            [
+                "b82e468ee78f1898"
+            ],
+            [
+                "6ae3b0472699dca7"
+            ]
+        ]
+    },
+    {
+        "id": "6ae3b0472699dca7",
+        "type": "function",
+        "z": "2567a318.c428a4",
+        "name": "on",
+        "func": "msg.command = \"\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 1520,
+        "wires": [
+            [
+                "623f27e8984da4b2",
+                "533e8052994421f9"
+            ]
+        ]
+    },
+    {
+        "id": "72aea1d5bf1ff85d",
+        "type": "debug",
+        "z": "2567a318.c428a4",
+        "name": "on",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "623f27e8984da4b2",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/open",
+        "addpay": "",
+        "append": "/Users/kai/gqrx/Gqrx.app",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1560,
+        "y": 1500,
+        "wires": [
+            [
+                "72aea1d5bf1ff85d"
+            ],
+            [
+                "72aea1d5bf1ff85d"
+            ],
+            [
+                "72aea1d5bf1ff85d"
+            ]
+        ]
+    },
+    {
+        "id": "533e8052994421f9",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/open",
+        "addpay": "",
+        "append": "-b com.rogueamoeba.audiohijack /Users/kai/declick.ahcommand",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1560,
+        "y": 1560,
+        "wires": [
+            [
+                "72aea1d5bf1ff85d"
+            ],
+            [
+                "72aea1d5bf1ff85d"
+            ],
+            [
+                "72aea1d5bf1ff85d"
+            ]
+        ]
+    },
+    {
+        "id": "3613496082781fcc",
+        "type": "exec",
+        "z": "2567a318.c428a4",
+        "command": "/usr/bin/pkill",
+        "addpay": "",
+        "append": "\"Audio Hijack\"",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1550,
+        "y": 1400,
+        "wires": [
+            [
+                "53f9a5dc9fe2a28b"
+            ],
+            [
+                "53f9a5dc9fe2a28b"
+            ],
+            [
+                "53f9a5dc9fe2a28b"
+            ]
+        ]
+    },
+    {
+        "id": "0ac0aeb7df4f08f0",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1220,
+        "y": 1340,
+        "wires": [
+            [
+                "b82e468ee78f1898"
+            ]
+        ]
+    },
+    {
+        "id": "c49c19fe420b9f0d",
+        "type": "inject",
+        "z": "2567a318.c428a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1220,
+        "y": 1520,
+        "wires": [
+            [
+                "6ae3b0472699dca7"
+            ]
+        ]
+    },
+    {
+        "id": "5ff9d193862b77aa",
+        "type": "link out",
+        "z": "2567a318.c428a4",
+        "name": "gqrx",
+        "mode": "link",
+        "links": [
+            "1523842310924d1d"
+        ],
+        "x": 1525,
+        "y": 1300,
+        "wires": []
     },
     {
         "id": "ce9b801a20ac0ac0",
